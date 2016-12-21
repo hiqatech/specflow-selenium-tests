@@ -32,7 +32,6 @@ D:\ZolCo\VisualProjects\CattolicaSpecflowTest\CattolicaSpecflowTest\obj\Debug\Ca
 D:\ZolCo\VisualProjects\CattolicaSpecflowTest\CattolicaSpecflowTest\obj\Debug\CattolicaSpecflowTest.pdb
 D:\ZolCo\VisualProjects\SpecFlowTest\LinkedInSpecFlowTest\bin\Debug\chromedriver.exe
 D:\ZolCo\VisualProjects\SpecFlowTest\LinkedInSpecFlowTest\bin\Debug\IEDriverServer.exe
-D:\ZolCo\VisualProjects\SpecFlowTest\LinkedInSpecFlowTest\obj\Debug\LinkedInSpecflowTest.csprojResolveAssemblyReference.cache
 D:\ZolCo\VisualProjects\SpecFlowTest\LinkedInSpecFlowTest\bin\Debug\IEDriverServer-license.txt
 D:\ZolCo\VisualProjects\SpecFlowTest\LinkedInSpecFlowTest\bin\Debug\Default.srprofile
 D:\ZolCo\VisualProjects\SpecFlowTest\LinkedInSpecFlowTest\bin\Debug\CattolicaSpecflowTest.dll.config
@@ -60,5 +59,6 @@ D:\ZolCo\VisualProjects\SpecFlowTest\LinkedInSpecFlowTest\bin\Debug\nunit.framew
 D:\ZolCo\VisualProjects\SpecFlowTest\LinkedInSpecFlowTest\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\ZolCo\VisualProjects\SpecFlowTest\LinkedInSpecFlowTest\bin\Debug\WebDriver.xml
 D:\ZolCo\VisualProjects\SpecFlowTest\LinkedInSpecFlowTest\bin\Debug\WebDriver.Support.xml
+D:\ZolCo\VisualProjects\SpecFlowTest\LinkedInSpecFlowTest\obj\Debug\LinkedInSpecFlowTest.csprojResolveAssemblyReference.cache
 D:\ZolCo\VisualProjects\SpecFlowTest\LinkedInSpecFlowTest\obj\Debug\CattolicaSpecflowTest.dll
 D:\ZolCo\VisualProjects\SpecFlowTest\LinkedInSpecFlowTest\obj\Debug\CattolicaSpecflowTest.pdb

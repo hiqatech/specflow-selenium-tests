@@ -35,7 +35,13 @@ namespace LinkedInSpecFlowTest.Steps.Env
 
 
         public static void SafeClick(IWebElement webelement, string to)
-        {    
+        {
+
+            if (SetUp.current_driver == "Firefox")
+            {
+                webelement.Click();
+                goto firefox_action_down;
+            }
 
             Actions actions = new Actions(SetUp.driver);
             actions.MoveToElement(webelement);
@@ -48,6 +54,7 @@ namespace LinkedInSpecFlowTest.Steps.Env
             else
                 webelement.SendKeys(Keys.Enter);
 
+            firefox_action_down: ;
         }
 
         public static bool isDisplayed(IWebElement webelement,string element_name)
@@ -119,11 +126,11 @@ namespace LinkedInSpecFlowTest.Steps.Env
             string testImage = "testImage" + SetUp.systemTime + ".jpg";
             var screenshotdriver = SetUp.driver as ITakesScreenshot;
             var screenshot = screenshotdriver.GetScreenshot();
-            string imagefullpath = Path.Combine(SetUp.TestResultDirectory, testImage);
+            string imagefullpath = Path.Combine(SetUp.currentTestRestultDirectory, testImage);
             
             screenshot.SaveAsFile(imagefullpath, ImageFormat.Jpeg);
 
-            Console.WriteLine("Test Evidence ScreenShoot saved with " + testImage.ToString() + " name at " + SetUp.systemTime + " to " + SetUp.TestResultDirectory);
+            Console.WriteLine("Test Evidence ScreenShoot saved with " + testImage.ToString() + " name at " + SetUp.systemTime + " to " + SetUp.currentTestRestultDirectory);
         }
 
 }

@@ -8,7 +8,7 @@ namespace LinkedInSpecFlowTest.Pages
 
         private IWebDriver driver;
 
-        public const string user_profile_locator = "nav#header-navigation-utilities a > img";
+        public const string user_profile_locator = "#account-nav > ul > li.nav-item.account-settings-tab > a";
         [FindsBy(How = How.CssSelector, Using = user_profile_locator)]
         [CacheLookup]
         public IWebElement user_profile { get; set; }

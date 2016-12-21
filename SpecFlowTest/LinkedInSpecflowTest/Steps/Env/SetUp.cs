@@ -19,7 +19,7 @@ namespace LinkedInSpecFlowTest.Steps.Env
         public static string current_driver = null;
         public static string testStartTime = null;
         public static string systemTime = DateTime.Now.ToString("yyyy-MM-ddTHHmmss");
-        public static string defaultTestRestultDirectory = "D:\\ZolCo\\VisualProjects\\SpecFlowTest\\TestResults";
+        public static string defaultTestRestultDirectory = "D:\\ZolCo\\VisualProjects\\SpecFlowTest\\TestResults\\";
         public static string currentTestRestultDirectory = null;
         [BeforeTestRun]
         public static void TestSetup()
@@ -68,25 +68,25 @@ namespace LinkedInSpecFlowTest.Steps.Env
                 {
                     case "Chrome":
                         {
-                            ChromeOptions options = new ChromeOptions();
-                            options.AddArgument("--ignore-certificate-errors");
+                            //ChromeOptions options = new ChromeOptions();
+                            //options.AddArgument("--ignore-certificate-errors");
                             driver = new ChromeDriver();
                             current_driver = "Chrome";
                             break;
                         }
                     case "Firefox":
                         {
-                            string path = @"C:\Product-Tests\ffProfile";
-                            FirefoxProfile ffprofile = new FirefoxProfile(path);
-                            driver = new FirefoxDriver(ffprofile);
+                            //string path = @"C:\Product-Tests\ffProfile";
+                            //FirefoxProfile ffprofile = new FirefoxProfile(path);
+                            driver = new FirefoxDriver();
                             current_driver = "Firefox";
                             break;
                         }
 
                     case "IE":
                         {
-                            DesiredCapabilities capabilities = new DesiredCapabilities();
-                            capabilities.SetCapability(CapabilityType.AcceptSslCertificates, true);
+                            //DesiredCapabilities capabilities = new DesiredCapabilities();
+                            //capabilities.SetCapability(CapabilityType.AcceptSslCertificates, true);
                             driver = new InternetExplorerDriver();
                             current_driver = "IE";
                             break;

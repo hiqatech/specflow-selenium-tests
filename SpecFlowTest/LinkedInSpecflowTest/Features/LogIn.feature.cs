@@ -85,6 +85,54 @@ testRunner.Then("I should see the user_profile element", ((string)(null)), ((Tec
             this.ScenarioCleanup();
         }
         
+        [TechTalk.SpecRun.ScenarioAttribute("Firefox -  I can login as a user with my correct username and password", new string[] {
+                "Regression",
+                "Browser:Firefox"}, SourceLine=14)]
+        public virtual void Firefox_ICanLoginAsAUserWithMyCorrectUsernameAndPassword()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Firefox -  I can login as a user with my correct username and password", new string[] {
+                        "Regression",
+                        "Browser:Firefox"});
+#line 15
+this.ScenarioSetup(scenarioInfo);
+#line 16
+testRunner.Given("I navigate to the https://www.linkedin.com website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 17
+testRunner.And("I enter kiszols@yahoo.com as the user_name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 18
+testRunner.And("I enter Stridentb52 as the pass_word", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 19
+testRunner.When("I select the sign_in_button element", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 20
+testRunner.Then("I should see the user_profile element", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("IE -  I can login as a user with my correct username and password", new string[] {
+                "Regression",
+                "Browser:IE"}, SourceLine=24)]
+        public virtual void IE_ICanLoginAsAUserWithMyCorrectUsernameAndPassword()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("IE -  I can login as a user with my correct username and password", new string[] {
+                        "Regression",
+                        "Browser:IE"});
+#line 25
+this.ScenarioSetup(scenarioInfo);
+#line 26
+testRunner.Given("I navigate to the https://www.linkedin.com website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 27
+testRunner.And("I enter kiszols@yahoo.com as the user_name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+testRunner.And("I enter Stridentb52 as the pass_word", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 29
+testRunner.When("I select the sign_in_button element", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 30
+testRunner.Then("I should see the user_profile element", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         public virtual void Chrome_ICanNotLoginAsUserWithNotCorrectUsernameAndPassword(string user_Name, string pass_Word, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -95,17 +143,17 @@ testRunner.Then("I should see the user_profile element", ((string)(null)), ((Tec
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Chrome -  I can not login as user with not correct username and password", @__tags);
-#line 15
+#line 35
 this.ScenarioSetup(scenarioInfo);
-#line 16
+#line 36
 testRunner.Given("I navigate to the https://www.linkedin.com website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 17
+#line 37
 testRunner.And(string.Format("I enter {0} as the user_name", user_Name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 18
+#line 38
 testRunner.And(string.Format("I enter {0} as the pass_word", pass_Word), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 19
+#line 39
 testRunner.When("I select the sign_in_button element", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 20
+#line 40
 testRunner.Then("I should not see the user_profile element", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

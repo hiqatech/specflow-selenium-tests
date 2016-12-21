@@ -10,6 +10,26 @@ When I select the sign_in_button element
 Then I should see the user_profile element
 #And I should logout
 
+@Regression
+@Browser:Firefox
+Scenario:Firefox -  I can login as a user with my correct username and password
+Given I navigate to the https://www.linkedin.com website
+And I enter kiszols@yahoo.com as the user_name
+And I enter Stridentb52 as the pass_word
+When I select the sign_in_button element
+Then I should see the user_profile element
+#And I should logout
+
+@Regression
+@Browser:IE
+Scenario:IE -  I can login as a user with my correct username and password
+Given I navigate to the https://www.linkedin.com website
+And I enter kiszols@yahoo.com as the user_name
+And I enter Stridentb52 as the pass_word
+When I select the sign_in_button element
+Then I should see the user_profile element
+#And I should 
+
 @Smoke
 @Browser:Chrome
 Scenario Outline:Chrome -  I can not login as user with not correct username and password
