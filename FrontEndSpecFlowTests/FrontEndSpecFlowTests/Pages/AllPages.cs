@@ -72,7 +72,7 @@ namespace FrontEndSpecFlowTests.Pages
                         Console.WriteLine(CurrentPageName + " element has not defined yet in the test pages");
                         return element_locator;
 
-                    }
+                    }  
             }
 
         }
