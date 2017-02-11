@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Ipsi.Darta.WebServices.Business.Ipsi.Darta.WebServices.Business" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Ipsi.Darta.WebServices.Business.Ipsi.Darta.WebServices.Business" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://serv8563/DartaBusinessServices/BusinessService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Ipsi.Common.WebServices.Business.Types" />
+  <xs:complexType name="DartaCommissionSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AgentList" nillable="true" type="tns:ArrayOfAgentList" />
+      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfDartaCommission" />
+      <xs:element minOccurs="0" name="ProductRate" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ReasonForChange" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SearchCriteria" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceAgentCount" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DartaCommissionSummary" nillable="true" type="tns:DartaCommissionSummary" />
+  <xs:complexType name="ArrayOfAgentList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AgentList" nillable="true" type="tns:AgentList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAgentList" nillable="true" type="tns:ArrayOfAgentList" />
+  <xs:complexType name="AgentList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AgentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentReference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalAgentReference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaymentMethod" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PercentageShare" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AgentList" nillable="true" type="tns:AgentList" />
+  <xs:complexType name="ArrayOfDartaCommission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DartaCommission" nillable="true" type="tns:DartaCommission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDartaCommission" nillable="true" type="tns:ArrayOfDartaCommission" />
+  <xs:complexType name="DartaCommission">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Ipsi.Common.WebServices.Business.Types" base="q1:Commission">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ExternalAgentReference" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DartaCommission" nillable="true" type="tns:DartaCommission" />
+</xs:schema>
