@@ -153,25 +153,6 @@
     <Compile Include="ACommon\STEPS\BackEnd\DataBase\DataBase.cs" />
     <Compile Include="ACommon\SRC\Load.cs" />
     <Compile Include="ACommon\STEPS\BackEnd\Service\NewBusiness.cs" />
-    <Compile Include="Darta\Features\BackEnd\Allianz\NewBusiness\NewBusinessChallangePlus.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NewBusinessChallangePlus.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Darta\Features\FrontEnd\Allianz\FullSurrender\FullSurrenderChallangePlus.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FullSurrenderChallangePlus.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Darta\Features\FrontEnd\Allianz\NewBusiness\NewBusinessChallangePlus.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NewBusinessChallangePlus.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Darta\Pages\LogInPage.cs" />
-    <Compile Include="Darta\Pages\NewPolicy.cs" />
-    <Compile Include="Darta\Pages\Policy.cs" />
-    <Compile Include="Darta\Pages\MainPage.cs" />
     <Compile Include="ACommon\STEPS\FrontEnd\AllPages.cs" />
     <Compile Include="ACommon\STEPS\BackEnd\Service\CreateTestData.cs" />
     <Compile Include="ACommon\STEPS\BackEnd\DataBase\CompareResults.cs" />
@@ -183,13 +164,31 @@
     <Compile Include="ACommon\SRC\Helper.cs" />
     <Compile Include="ACommon\STEPS\FrontEnd\Selects.cs" />
     <Compile Include="ACommon\SRC\SetUp.cs" />
-    <Compile Include="Darta\Features\FrontEnd\Allianz\LogIn\LogIn.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LogIn.feature</DependentUpon>
-    </Compile>
     <Compile Include="ACommon\STEPS\FrontEnd\ShouldNSees.cs" />
     <Compile Include="ACommon\STEPS\FrontEnd\Navigates.cs" />
+    <Compile Include="CLinkedin\Features\BackEnd\SignIn\NewBusiness1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewBusiness.feature</DependentUpon>
+    </Compile>
+    <Compile Include="CLinkedin\Features\FrontEnd\FullSurrender\FullSurrender.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FullSurrender.feature</DependentUpon>
+    </Compile>
+    <Compile Include="CLinkedin\Features\FrontEnd\NewBusiness\NewBusiness.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewBusiness.feature</DependentUpon>
+    </Compile>
+    <Compile Include="CLinkedin\Features\FrontEnd\SignIn\SignIN1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SignIN.feature</DependentUpon>
+    </Compile>
+    <Compile Include="CLinkedin\Pages\MainPage.cs" />
+    <Compile Include="CLinkedin\Pages\SignInPage.cs" />
+    <Compile Include="CLinkedin\Pages\SignOutPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ACommon\STEPS\FrontEnd\ShouldSees.cs" />
     <Compile Include="ACommon\STEPS\FrontEnd\Common.cs" />
@@ -204,28 +203,29 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="CLinkedin\Features\BackEnd\SignIn\NewBusiness.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>NewBusiness1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="CLinkedin\Features\FrontEnd\FullSurrender\FullSurrender.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>FullSurrender.feature.cs</LastGenOutput>
+    </None>
+    <None Include="CLinkedin\Features\FrontEnd\NewBusiness\NewBusiness.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>NewBusiness.feature.cs</LastGenOutput>
+    </None>
+    <None Include="CLinkedin\Features\FrontEnd\SignIn\SignIN.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SignIN1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="CLinkedin\Features\FrontEnd\SignIn\TestData.xlsx" />
     <None Include="Default.srprofile">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Darta\Features\BackEnd\Allianz\NewBusiness\NewBusinessChallangePlus.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>NewBusinessChallangePlus.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Darta\Features\FrontEnd\Allianz\FullSurrender\FullSurrenderChallangePlus.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>FullSurrenderChallangePlus.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Darta\Features\FrontEnd\Allianz\NewBusiness\NewBusinessChallangePlus.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>NewBusinessChallangePlus.feature.cs</LastGenOutput>
-    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Darta\Features\FrontEnd\Allianz\LogIn\LogIn.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>LogIn.feature.cs</LastGenOutput>
     </None>
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="runtests.cmd" />
@@ -440,9 +440,6 @@
     <None Include="SpecRunTestProfile.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="SpecRunTestProfile_2011_09.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\packages\Selenium.Mozilla.Firefox.Webdriver.0.6.0.1\driver\wires-0.6.0-win.exe">
@@ -471,27 +468,16 @@
     <None Include="Service References\DartaBusinessServices\BusinessService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Cattolica\Features\" />
-    <Folder Include="Cattolica\Pages\" />
-    <Folder Include="Darta\Features\BackEnd\Allianz\FullSurrender\" />
-    <Folder Include="Darta\Features\BackEnd\Multi\" />
-    <Folder Include="Darta\Features\BackEnd\Sheltia\" />
-    <Folder Include="Darta\Features\BackEnd\Super\" />
-    <Folder Include="Darta\Features\FrontEnd\Multi\" />
-    <Folder Include="Darta\Features\FrontEnd\Sheltia\NewBusinessSheltia\" />
-    <Folder Include="Darta\Features\FrontEnd\Super\" />
+    <Folder Include="CLinkedin\Features\BackEnd\SignUp\" />
+    <Folder Include="CLinkedin\Features\FrontEnd\SignUp\" />
+    <Folder Include="CYahoo\Features\" />
+    <Folder Include="CYahoo\Pages\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\DartaBusinessServices\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\Libraries\Utilities\Ipsi.Common.Utilities.vbproj">
-      <Project>{d0e05498-8c4e-4c1a-ab1f-b575c8cf415e}</Project>
-      <Name>Ipsi.Common.Utilities</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

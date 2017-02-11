@@ -16,7 +16,7 @@ namespace ProductTests.ACommon.SRC
         {
             string result = "";
             string CREDENTIALS = "PASSword123";
-            string URL_ADDRESS = "http://www.client.com/_ws/" + method + "?sso=" + CREDENTIALS + "&o=" + operation +;  
+            string URL_ADDRESS = "http://www.client.com/_ws/" + method + "?sso=" + CREDENTIALS + "&o=" + operation;  
             
             HttpWebRequest request = WebRequest.Create(new Uri(URL_ADDRESS)) as HttpWebRequest;
 

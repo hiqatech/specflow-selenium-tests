@@ -17,13 +17,13 @@ namespace ProductTests.CLinkedin.Features.FrontEnd.NewBusiness
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("New Business", SourceFile="CLinkedin\\Features\\FrontEnd\\NewBusiness\\NewBusinessChallangePlus.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("New Business", SourceFile="CLinkedin\\Features\\FrontEnd\\NewBusiness\\NewBusiness.feature", SourceLine=0)]
     public partial class NewBusinessFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "NewBusinessChallangePlus.feature"
+#line 1 "NewBusiness.feature"
 #line hidden
         
         [TechTalk.SpecRun.FeatureInitialize()]

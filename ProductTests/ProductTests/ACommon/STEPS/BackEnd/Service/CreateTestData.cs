@@ -1,7 +1,6 @@
 ﻿using TechTalk.SpecFlow;
 using ProductTests.Utils;
 using ProductTests.DartaBusinessServices;
-using Ipsi.Common.Utilities;
 using ProductTests.ACommon.SRC;
 using System.Collections.Generic;
 using System.Xml;
@@ -21,12 +20,12 @@ namespace ProdutcTests.Common.Steps.BackEnd
             string serviceName = Config.serviceName;
 
             BusinessServiceClient service = new BusinessServiceClient();
-            BaseMessageData MessageData = Config.SetConfigHeaders(Config.serviceName,Config.configTable);
-            service.Endpoint.Behaviors.Add(new MessageInspectorCustomBehavior(ref MessageData));
-            service.Endpoint.Behaviors.Add(new InspectorBehavior());
+            //BaseMessageData MessageData = Config.SetConfigHeaders(Config.serviceName,Config.configTable);
+            //service.Endpoint.Behaviors.Add(new MessageInspectorCustomBehavior(ref MessageData));
+            //service.Endpoint.Behaviors.Add(new InspectorBehavior());
 
             XmlDocument soapXML = null;
-            soapXML = MyMessageInspector.BeforeSendRequest(ref MessageData, channel);
+            //soapXML = MyMessageInspector.BeforeSendRequest(ref MessageData, channel);
 
             RequestXML = GetRequestByData(datatable, soapXML);
 
@@ -40,7 +39,7 @@ namespace ProdutcTests.Common.Steps.BackEnd
 
             XmlDocument requestXML = new XmlDocument();
 
-            soapXML[] = myDictionary[];
+            //soapXML[] = myDictionary[];
 
 
 

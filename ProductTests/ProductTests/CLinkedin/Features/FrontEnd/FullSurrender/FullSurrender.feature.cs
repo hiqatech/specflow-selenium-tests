@@ -10,20 +10,20 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace ProductTests.Darta.Features.FrontEnd.Allianz.FullSurrender
+namespace ProductTests.CLinkedin.Features.FrontEnd.FullSurrender
 {
     using TechTalk.SpecFlow;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("FullSurrender", SourceFile="Darta\\Features\\FrontEnd\\Allianz\\FullSurrender\\FullSurrenderChallangePlus.feature", SourceLine=1)]
+    [TechTalk.SpecRun.FeatureAttribute("FullSurrender", SourceFile="CLinkedin\\Features\\FrontEnd\\FullSurrender\\FullSurrender.feature", SourceLine=1)]
     public partial class FullSurrenderFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "FullSurrenderChallangePlus.feature"
+#line 1 "FullSurrender.feature"
 #line hidden
         
         [TechTalk.SpecRun.FeatureInitialize()]
