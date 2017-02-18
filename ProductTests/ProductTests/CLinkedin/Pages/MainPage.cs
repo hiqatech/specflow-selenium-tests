@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace CrossEndSpecFlowTests.Pages
+namespace ProductTests.Pages
 {
     class MainPage
     {
@@ -16,14 +16,6 @@ namespace CrossEndSpecFlowTests.Pages
             { "Complete", "Complete" }
 
         };
-
-        public static string getElementLocator(Dictionary<string, string> element_locators, string element_name)
-        {
-
-            return element_locators[element_name];
-        }
-
-
 
     }
 }

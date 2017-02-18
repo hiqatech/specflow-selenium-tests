@@ -1,11 +1,9 @@
-﻿using CrossEndSpecFlowTests.Pages;
-using CrossEndSpecFlowTests.Common;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using System;
-
 using TechTalk.SpecFlow;
+using ProductTests.Common;
 
-namespace CrossEndSpecFlowTests.Pages
+namespace ProductTests.Pages
 {
     [Binding]
 
@@ -22,19 +20,19 @@ namespace CrossEndSpecFlowTests.Pages
             {
                 case "SignInPage":
                     {
-                        element_locator = SignInPage.getElementLocator(SignInPage.element_locators, element_name);
+                        element_locator = SignInPage.element_locators[element_name];
                         Helper.WaitToAppear(element_locator, element_name);
                         return webelement;
                     }
                 case "MainPage":
                     {
-                        element_locator = MainPage.getElementLocator(MainPage.element_locators, element_name);
+                        element_locator = MainPage.element_locators[element_name];
                         Helper.WaitToAppear(element_locator, element_name);
                         return webelement;
                     }
                 case "SignOutPage":
                     {
-                        element_locator = SignOutPage.getElementLocator(SignOutPage.element_locators, element_name);
+                        element_locator = SignOutPage.element_locators[element_name];
                         return webelement;
                     }
                 default:

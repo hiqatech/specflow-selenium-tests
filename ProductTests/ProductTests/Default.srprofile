@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TestProfile xmlns="http://www.specflow.org/schemas/plus/TestProfile/1.5">
-  <Settings projectName="CattolicaSpecflowTest" projectId="{a8f1b369-c7cc-4f49-8b58-72dfc5928a77}" />
+  <Settings projectName="ProductTests" projectId="{a8f1b369-c7cc-4f49-8b58-72dfc5928a77}" />
   <Execution retryFor="None" stopAfterFailures="10" testThreadCount="1" testSchedulingMode="Sequential" />
   <!-- For collecting by a SpecRun server update and enable the following element. For using the 
       collected statistics, set testSchedulingMode="Adaptive" attribute on the <Execution> element.
     <Server serverUrl="http://specrunserver:6365" publishResults="true" />
   -->
   <TestAssemblyPaths>
-    <TestAssemblyPath>CattolicaSpecflowTest.dll</TestAssemblyPath>
+    <TestAssemblyPath>ProductTests.dll</TestAssemblyPath>
   </TestAssemblyPaths>
   <DeploymentTransformation>
     <Steps>

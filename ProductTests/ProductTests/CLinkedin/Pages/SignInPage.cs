@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 
-namespace CrossEndSpecFlowTests.Pages
+namespace ProductTests.Pages
 {
     class SignInPage
     {
@@ -19,12 +19,6 @@ namespace CrossEndSpecFlowTests.Pages
             { "Complete", "Complete" }
 
          };
-
-        public static string getElementLocator(IDictionary<string, string> element_locators, string elementname)
-        {
-           
-            return element_locators[elementname];
-        }
 
         }
     }

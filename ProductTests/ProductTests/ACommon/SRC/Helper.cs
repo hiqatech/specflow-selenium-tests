@@ -6,9 +6,12 @@ using System.Reflection;
 using System.IO;
 using System.Drawing.Imaging;
 using ProductTests.Common.Steps.FrontEnd;
+using TechTalk.SpecFlow;
 
 namespace ProductTests.Common
 {
+    [Binding]
+
     class Helper
     {
         static int startTime = 0;
@@ -151,6 +154,25 @@ namespace ProductTests.Common
 
             return random_string;
 
+        }
+
+        [TestMethod]
+        [Given(@"I wait (.*) sec")]
+        [When(@"I wait (.*) sec")]
+        [Then(@"I wait (.*) sec")]
+        public void GivenIWaitSec(int wait)
+        {
+            Thread.Sleep(wait * 1000);
+        }
+
+        [TestMethod]
+        [Given(@"I generate random (.*) char long number starts with (.*)")]
+        [When(@"I generate random (.*) char long number starts with (.*)")]
+        [Then(@"I generate random (.*) char long number starts with (.*)")]
+        public void GivenGenerateRandomNumber(int length, string startswith)
+        {
+            random_string = Helper.GenerateRandomString(length, startswith);
+            Console.WriteLine(random_string);
         }
 
 

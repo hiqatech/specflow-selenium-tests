@@ -191,7 +191,7 @@
     <Compile Include="CLinkedin\Pages\SignOutPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ACommon\STEPS\FrontEnd\ShouldSees.cs" />
-    <Compile Include="ACommon\STEPS\FrontEnd\Common.cs" />
+    <Compile Include="CLinkedin\SpecSteps.cs" />
     <Compile Include="ACommon\Utils\TableExtensions.cs" />
     <Compile Include="Service References\DartaBusinessServices\Reference.cs">
       <AutoGen>True</AutoGen>

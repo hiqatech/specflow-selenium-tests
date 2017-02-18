@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace CrossEndSpecFlowTests.Pages
+namespace ProductTests.Pages
 {
     class SignOutPage
     {
@@ -20,12 +20,6 @@ namespace CrossEndSpecFlowTests.Pages
 
 
          };
-
-        public static string getElementLocator(IDictionary<string, string> element_locators, string elementname)
-        {
-
-            return element_locators[elementname];
-        }
 
     }
 }
