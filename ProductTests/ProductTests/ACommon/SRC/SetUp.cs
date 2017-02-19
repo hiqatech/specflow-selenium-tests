@@ -136,7 +136,7 @@ namespace ProductTests.Common
         public static void DriverClose()
         {
 
-            if (!(current_driver == "DB") || !(current_driver == "Server")) { goto endtest; }
+            if (current_driver == "DB" || current_driver == "Service") { goto endtest; }
 
             if (ScenarioContext.Current.TestError != null)
             {

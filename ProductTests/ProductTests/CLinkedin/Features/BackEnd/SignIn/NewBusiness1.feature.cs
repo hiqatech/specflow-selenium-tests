@@ -61,11 +61,11 @@ namespace ProductTests.CLinkedin.Features.BackEnd.SignIn
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Server - I can create a Allianz Challange Plus New Business", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("Service - I can create a Allianz Challange Plus New Business", new string[] {
                 "Smoke"}, SourceLine=3)]
-        public virtual void Server_ICanCreateAAllianzChallangePlusNewBusiness()
+        public virtual void Service_ICanCreateAAllianzChallangePlusNewBusiness()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Server - I can create a Allianz Challange Plus New Business", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Service - I can create a Allianz Challange Plus New Business", new string[] {
                         "Smoke"});
 #line 4
 this.ScenarioSetup(scenarioInfo);

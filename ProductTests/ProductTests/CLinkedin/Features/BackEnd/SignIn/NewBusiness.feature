@@ -1,7 +1,7 @@
 ﻿Feature: BackEndNewBusiness
 
 @Smoke
-Scenario: Server - I can create a Allianz Challange Plus New Business
+Scenario: Service - I can create a Allianz Challange Plus New Business
 Given I connect to the SERV8604 server DartaUATR1 database  
 And I ping the DartaBusinessServices with
 | Field					| Value |

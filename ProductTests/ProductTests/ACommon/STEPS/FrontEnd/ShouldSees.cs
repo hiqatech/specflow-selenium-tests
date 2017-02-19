@@ -2,6 +2,7 @@
 using System;
 using OpenQA.Selenium;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ProductTests.Pages;
 
 namespace ProductTests.Common.Steps.FrontEnd
 {

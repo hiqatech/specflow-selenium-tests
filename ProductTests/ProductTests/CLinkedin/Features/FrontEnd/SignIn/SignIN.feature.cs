@@ -61,7 +61,7 @@ namespace ProductTests.CLinkedin.Features.FrontEnd.SignIn
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void Chrome_ICanSigninAsAUserWithNotCorrectUsernameAndPassword(string user_Name, string pass_Word, string[] exampleTags)
+        public virtual void Chrome_ICanSigninAsAUserWithCorrectUsernameAndPassword(string user_Name, string pass_Word, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "Regression"};
@@ -69,7 +69,7 @@ namespace ProductTests.CLinkedin.Features.FrontEnd.SignIn
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Chrome - I can signin as a user with not correct username and password", @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Chrome - I can signin as a user with correct username and password", @__tags);
 #line 5
 this.ScenarioSetup(scenarioInfo);
 #line 6
@@ -92,14 +92,44 @@ testRunner.And("I should signout", ((string)(null)), ((TechTalk.SpecFlow.Table)(
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Chrome - I can signin as a user with not correct username and password, kiszols@y" +
-            "ahoo.com", new string[] {
-                "Regression",
-                "source:TestData.xlsx:SignIn"}, SourceLine=0)]
-        public virtual void Chrome_ICanSigninAsAUserWithNotCorrectUsernameAndPassword_KiszolsYahoo_Com()
+        [TechTalk.SpecRun.ScenarioAttribute("Chrome - I can signin as a user with correct username and password, kiszols@yahoo" +
+            ".com", new string[] {
+                "Regression"}, SourceLine=17)]
+        public virtual void Chrome_ICanSigninAsAUserWithCorrectUsernameAndPassword_KiszolsYahoo_Com()
         {
-            this.Chrome_ICanSigninAsAUserWithNotCorrectUsernameAndPassword("kiszols@yahoo.com", "Stridentb52", new string[] {
-                        "source:TestData.xlsx:SignIn"});
+            this.Chrome_ICanSigninAsAUserWithCorrectUsernameAndPassword("kiszols@yahoo.com", "Stridentb52", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void Chrome_ICanSigninSignoutWithCorrectUsernameAndPassword(string user_Name, string pass_Word, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Regression"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Chrome - I can signin/signout with correct username and password", @__tags);
+#line 21
+this.ScenarioSetup(scenarioInfo);
+#line 22
+testRunner.Given("I navigate to the https://www.linkedin.com/ website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 23
+testRunner.And("I am on the SignInPage page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
+testRunner.And(string.Format("I login with {0} username and {1} password", user_Name, pass_Word), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 25
+testRunner.And("I should signout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Chrome - I can signin/signout with correct username and password, kiszols@yahoo.c" +
+            "om", new string[] {
+                "Regression"}, SourceLine=28)]
+        public virtual void Chrome_ICanSigninSignoutWithCorrectUsernameAndPassword_KiszolsYahoo_Com()
+        {
+            this.Chrome_ICanSigninSignoutWithCorrectUsernameAndPassword("kiszols@yahoo.com", "Stridentb52", ((string[])(null)));
 #line hidden
         }
         

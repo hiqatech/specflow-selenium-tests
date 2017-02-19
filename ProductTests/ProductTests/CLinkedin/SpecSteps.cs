@@ -22,51 +22,33 @@ namespace ProductTests.Common.Steps.FrontEnd
         public void ILoginWithUserNameAndPassword(string user_name, string pass_word)
         {
             Helper.Sleep(1200);
-            webelement = AllPages.GetWebElement("super_user_login_button");
-            webelement.Click();
             webelement = AllPages.GetWebElement("user_name_entry");
             Helper.SafeClick(webelement, "safeclick");
             webelement.SendKeys(user_name);
             webelement = AllPages.GetWebElement("pass_word_entry");
             Helper.SafeClick(webelement, "safeclick");
-            webelement.SendKeys(pass_word);
-            webelement = AllPages.GetWebElement("security_question_school_age_entry");
-            Helper.SafeClick(webelement, "safeclick");
-            webelement.SendKeys("x");
-            webelement = AllPages.GetWebElement("security_question_school_entry");
-            Helper.SafeClick(webelement, "safeclick");
-            webelement.SendKeys("x");
-            webelement = AllPages.GetWebElement("security_question_color_entry");
-            Helper.SafeClick(webelement, "safeclick");
-            webelement.SendKeys("x");
-            webelement = AllPages.GetWebElement("security_question_number_entry");
-            Helper.SafeClick(webelement, "safeclick");
-            webelement.SendKeys("x");
-            webelement = AllPages.GetWebElement("security_question_music_entry");
-            Helper.SafeClick(webelement, "safeclick");
-            webelement.SendKeys("x");
-            webelement = AllPages.GetWebElement("accept_cookies_button");
-            Helper.SafeClick(webelement, "safeclick");
-            webelement = AllPages.GetWebElement("login_button");
-            Helper.SafeClick(webelement, "safeclick");
-            webelement = AllPages.GetWebElement("accept_regulatory_button");
-            Helper.SafeClick(webelement, "safeclick");
-            element_locator = AllPages.GetElementLocator("user_profile_welcome_text");
-            Assert.IsTrue(Helper.WaitToAppear(element_locator, "user_profile_welcome_text"));
+            webelement.SendKeys(pass_word);    
+            webelement = AllPages.GetWebElement("sign_in_button");
+            Helper.SafeClick(webelement, "safeclick"); 
+            AllPages.CurrentPageName = "SignInPage";
+            element_locator = AllPages.GetElementLocator("user_profile_image");
+            Assert.IsTrue(Helper.WaitToAppear(element_locator, "user_profile_image"));
             Navigates.LogInStatus = "LoggedIn";
         }
 
         [TestMethod]
-        [Given(@"I should logout")]
-        [When(@"I should logout")]
-        [Then(@"I should logout")]
+        [Given(@"I should signout")]
+        [When(@"I should signout")]
+        [Then(@"I should signout")]
         public void IShouldLogOut()
         {
-            webelement = SetUp.driver.FindElement(By.LinkText("log_out_button"));
+            webelement = SetUp.driver.FindElement(By.LinkText("user_profile_image"));
             Helper.SafeClick(webelement, "safeclick");
+            webelement = SetUp.driver.FindElement(By.LinkText("sign_out_button"));
+            Helper.SafeClick(webelement, "safeclick");
+            AllPages.CurrentPageName = "SignOutPage";
             webelement = AllPages.GetWebElement("user_name_entry");
             Assert.IsTrue(Helper.isDisplayed(webelement, "user_name_entry"));
- 
             Navigates.LogInStatus = "LoggedOut";
         }
 

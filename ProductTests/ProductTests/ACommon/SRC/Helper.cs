@@ -7,6 +7,8 @@ using System.IO;
 using System.Drawing.Imaging;
 using ProductTests.Common.Steps.FrontEnd;
 using TechTalk.SpecFlow;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ProductTests.Pages;
 
 namespace ProductTests.Common
 {
@@ -20,6 +22,7 @@ namespace ProductTests.Common
         public static int shortSleepTime = 100;
         public static int longSleepTime = 10000;
         public static IWebElement webelement;
+        public static string random_string = null;
 
 
         public static void shortSleep()

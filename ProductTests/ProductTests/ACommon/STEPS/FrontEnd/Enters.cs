@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProdutcTests.Common.Steps.BackEnd;
+using ProductTests.Pages;
 
 namespace ProductTests.Common.Steps.FrontEnd
 {

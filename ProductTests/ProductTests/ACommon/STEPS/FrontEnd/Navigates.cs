@@ -1,6 +1,7 @@
 ﻿using System;
 using TechTalk.SpecFlow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ProductTests.Pages;
 
 namespace ProductTests.Common.Steps.FrontEnd
 {

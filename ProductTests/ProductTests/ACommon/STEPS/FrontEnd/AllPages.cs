@@ -12,7 +12,8 @@ namespace ProductTests.Pages
 
         public static string element_locator;
         public static IWebElement webelement;
-        public static string CurrentPageName;
+        public static string CurrentPageName = null;
+        public static string CurrentProductName = null;
 
         public static IWebElement GetWebElement(string element_name)
         {
@@ -52,17 +53,17 @@ namespace ProductTests.Pages
             {
                 case "SignInPage":
                     {
-                        element_locator = SignInPage.getElementLocator(SignInPage.element_locators, element_name);
+                        element_locator = SignInPage.element_locators[element_name];
                         return element_locator;
                     }
                 case "MainPage":
                     {
-                        element_locator = MainPage.getElementLocator(MainPage.element_locators, element_name);
+                        element_locator = MainPage.element_locators[element_name];
                         return element_locator;
                     }
                 case "SignOutPage":
                     {
-                        element_locator = SignOutPage.getElementLocator(SignOutPage.element_locators, element_name);
+                        element_locator = SignOutPage.element_locators[element_name];
                         return element_locator;
                     }
                 default:
