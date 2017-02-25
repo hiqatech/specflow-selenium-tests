@@ -47,12 +47,15 @@ namespace ProductTests.Common
             if (SetUp.current_driver == "Firefox" || to == "click")
             {
                 webelement.Click();
-                goto firefox_action_done;
+                goto action_done;
             }
 
             Actions actions = new Actions(SetUp.driver);
             actions.MoveToElement(webelement);
             actions.Perform();
+
+            if (to == "moveto")
+                goto action_done;
 
             if (to == "safeclick")
                 webelement.Click();
@@ -60,8 +63,8 @@ namespace ProductTests.Common
                 webelement.SendKeys(Keys.Return);
             else
                 webelement.SendKeys(Keys.Enter);
-            
-        firefox_action_done:;
+
+            action_done:;
         }
 
         public static bool isDisplayed(IWebElement webelement,string element_name)

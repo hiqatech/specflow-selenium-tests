@@ -87,14 +87,22 @@ testRunner.And("I am on the MainPage page", ((string)(null)), ((TechTalk.SpecFlo
 #line 12
 testRunner.Then("I should see the user_profile_image element", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 13
-testRunner.And("I should signout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I select the user_menu_dropdown element", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
+testRunner.And("I select the user_menu_sign_out_button element", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 15
+testRunner.And("I am on the SignOutPage page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
+testRunner.And("I wait 20 sec", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 17
+testRunner.And("I should see the user_name_entry element", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Chrome - I can signin as a user with correct username and password, kiszols@yahoo" +
             ".com", new string[] {
-                "Regression"}, SourceLine=17)]
+                "Regression"}, SourceLine=21)]
         public virtual void Chrome_ICanSigninAsAUserWithCorrectUsernameAndPassword_KiszolsYahoo_Com()
         {
             this.Chrome_ICanSigninAsAUserWithCorrectUsernameAndPassword("kiszols@yahoo.com", "Stridentb52", ((string[])(null)));
@@ -110,15 +118,15 @@ testRunner.And("I should signout", ((string)(null)), ((TechTalk.SpecFlow.Table)(
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Chrome - I can signin/signout with correct username and password", @__tags);
-#line 21
-this.ScenarioSetup(scenarioInfo);
-#line 22
-testRunner.Given("I navigate to the https://www.linkedin.com/ website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 23
-testRunner.And("I am on the SignInPage page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 24
-testRunner.And(string.Format("I login with {0} username and {1} password", user_Name, pass_Word), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 25
+this.ScenarioSetup(scenarioInfo);
+#line 26
+testRunner.Given("I navigate to the https://www.linkedin.com/ website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 27
+testRunner.And("I am on the SignInPage page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+testRunner.And(string.Format("I login with {0} username and {1} password", user_Name, pass_Word), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 29
 testRunner.And("I should signout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -126,7 +134,7 @@ testRunner.And("I should signout", ((string)(null)), ((TechTalk.SpecFlow.Table)(
         
         [TechTalk.SpecRun.ScenarioAttribute("Chrome - I can signin/signout with correct username and password, kiszols@yahoo.c" +
             "om", new string[] {
-                "Regression"}, SourceLine=28)]
+                "Regression"}, SourceLine=32)]
         public virtual void Chrome_ICanSigninSignoutWithCorrectUsernameAndPassword_KiszolsYahoo_Com()
         {
             this.Chrome_ICanSigninSignoutWithCorrectUsernameAndPassword("kiszols@yahoo.com", "Stridentb52", ((string[])(null)));

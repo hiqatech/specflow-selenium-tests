@@ -30,7 +30,7 @@ namespace ProductTests.Common.Steps.FrontEnd
             webelement.SendKeys(pass_word);    
             webelement = AllPages.GetWebElement("sign_in_button");
             Helper.SafeClick(webelement, "safeclick"); 
-            AllPages.CurrentPageName = "SignInPage";
+            AllPages.CurrentPageName = "MainPage";
             element_locator = AllPages.GetElementLocator("user_profile_image");
             Assert.IsTrue(Helper.WaitToAppear(element_locator, "user_profile_image"));
             Navigates.LogInStatus = "LoggedIn";
@@ -42,7 +42,7 @@ namespace ProductTests.Common.Steps.FrontEnd
         [Then(@"I should signout")]
         public void IShouldLogOut()
         {
-            webelement = SetUp.driver.FindElement(By.LinkText("user_profile_image"));
+            webelement = SetUp.driver.FindElement(By.LinkText("user_menu_dropdown"));
             Helper.SafeClick(webelement, "safeclick");
             webelement = SetUp.driver.FindElement(By.LinkText("sign_out_button"));
             Helper.SafeClick(webelement, "safeclick");
