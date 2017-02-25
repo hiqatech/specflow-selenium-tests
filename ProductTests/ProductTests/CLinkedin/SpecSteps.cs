@@ -48,8 +48,8 @@ namespace ProductTests.Common.Steps.FrontEnd
             webelement = AllPages.GetWebElement("user_menu_sign_out_button");
             Helper.SafeClick(webelement, "safeclick");
             AllPages.CurrentPageName = "SignOutPage";
-            webelement = AllPages.GetWebElement("user_name_entry");
-            Assert.IsTrue(Helper.isDisplayed(webelement, "user_name_entry"));
+            element_locator = AllPages.GetElementLocator("user_name_entry");
+            Assert.IsTrue(Helper.WaitToAppear(element_locator, "user_name_entry")); 
             Navigates.LogInStatus = "LoggedOut";
         }
 
