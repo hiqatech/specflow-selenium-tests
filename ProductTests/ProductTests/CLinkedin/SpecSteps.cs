@@ -19,7 +19,7 @@ namespace ProductTests.Common.Steps.FrontEnd
         [Given(@"I login with (.*) username and (.*) password")]
         [When(@"I login with (.*) username and (.*) password")]
         [Then(@"I login with (.*) username and (.*) password")]
-        public void ILoginWithUserNameAndPassword(string user_name, string pass_word)
+        public void ISignInWithUserNameAndPassword(string user_name, string pass_word)
         {
             Helper.Sleep(1200);
             webelement = AllPages.GetWebElement("user_name_entry");
@@ -40,11 +40,12 @@ namespace ProductTests.Common.Steps.FrontEnd
         [Given(@"I should signout")]
         [When(@"I should signout")]
         [Then(@"I should signout")]
-        public void IShouldLogOut()
+        public void IShouldSignOut()
         {
-            webelement = SetUp.driver.FindElement(By.LinkText("user_menu_dropdown"));
+            AllPages.CurrentPageName = "MainPage";
+            webelement = AllPages.GetWebElement("user_menu_dropdown");
             Helper.SafeClick(webelement, "safeclick");
-            webelement = SetUp.driver.FindElement(By.LinkText("sign_out_button"));
+            webelement = AllPages.GetWebElement("sign_out_button");
             Helper.SafeClick(webelement, "safeclick");
             AllPages.CurrentPageName = "SignOutPage";
             webelement = AllPages.GetWebElement("user_name_entry");
