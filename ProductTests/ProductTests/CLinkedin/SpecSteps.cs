@@ -45,7 +45,7 @@ namespace ProductTests.Common.Steps.FrontEnd
             AllPages.CurrentPageName = "MainPage";
             webelement = AllPages.GetWebElement("user_menu_dropdown");
             Helper.SafeClick(webelement, "safeclick");
-            webelement = AllPages.GetWebElement("sign_out_button");
+            webelement = AllPages.GetWebElement("user_menu_sign_out_button");
             Helper.SafeClick(webelement, "safeclick");
             AllPages.CurrentPageName = "SignOutPage";
             webelement = AllPages.GetWebElement("user_name_entry");
