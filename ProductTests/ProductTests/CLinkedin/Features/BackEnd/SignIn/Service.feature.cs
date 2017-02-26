@@ -17,13 +17,13 @@ namespace ProductTests.CLinkedin.Features.BackEnd.SignIn
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("BackEndNewBusiness", SourceFile="CLinkedin\\Features\\BackEnd\\SignIn\\NewBusiness.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("BackEndNewBusiness", SourceFile="CLinkedin\\Features\\BackEnd\\SignIn\\Service.feature", SourceLine=0)]
     public partial class BackEndNewBusinessFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "NewBusiness.feature"
+#line 1 "Service.feature"
 #line hidden
         
         [TechTalk.SpecRun.FeatureInitialize()]
@@ -61,77 +61,26 @@ namespace ProductTests.CLinkedin.Features.BackEnd.SignIn
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Service - I can create a Allianz Challange Plus New Business", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("Service -", new string[] {
                 "Smoke"}, SourceLine=3)]
-        public virtual void Service_ICanCreateAAllianzChallangePlusNewBusiness()
+        public virtual void Service_()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Service - I can create a Allianz Challange Plus New Business", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Service -", new string[] {
                         "Smoke"});
 #line 4
 this.ScenarioSetup(scenarioInfo);
-#line 5
-testRunner.Given("I connect to the SERV8604 server DartaUATR1 database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Field",
                         "Value"});
             table1.AddRow(new string[] {
-                        "database",
-                        "R1"});
-            table1.AddRow(new string[] {
-                        "distribution",
-                        "01"});
-            table1.AddRow(new string[] {
-                        "username",
-                        "x"});
-            table1.AddRow(new string[] {
-                        "locale",
-                        "IT"});
-            table1.AddRow(new string[] {
-                        "agentid",
-                        "x"});
-            table1.AddRow(new string[] {
-                        "company",
-                        "DAR"});
-            table1.AddRow(new string[] {
-                        "timeout",
-                        "x"});
-            table1.AddRow(new string[] {
-                        "userclientreference",
-                        "x\tx"});
-#line 6
-testRunner.And("I ping the DartaBusinessServices with", ((string)(null)), table1, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Field",
-                        "Value"});
-            table2.AddRow(new string[] {
                         "ApplicationSignedDate",
                         "system_date-5"});
-            table2.AddRow(new string[] {
+            table1.AddRow(new string[] {
                         "Address",
                         "Dublin"});
 #line 17
-testRunner.And("I have a NewBusinessProposal to AddProposal", ((string)(null)), table2, "And ");
-#line 21
-testRunner.And("I send POST request to AddProposal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 22
-testRunner.When("I run the batch process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Table",
-                        "Entry",
-                        "Value"});
-            table3.AddRow(new string[] {
-                        "BP_BasicPolicy",
-                        "PolicyStatus",
-                        "I"});
-            table3.AddRow(new string[] {
-                        "PH_PaymentHistory",
-                        "Details",
-                        "IN FORCE"});
-#line 23
-testRunner.Then("The DataBase values shoudl be", ((string)(null)), table3, "Then ");
+testRunner.And("I have a NewBusinessProposal to AddProposal", ((string)(null)), table1, "And ");
 #line hidden
             this.ScenarioCleanup();
         }

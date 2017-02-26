@@ -166,20 +166,10 @@
     <Compile Include="ACommon\SRC\SetUp.cs" />
     <Compile Include="ACommon\STEPS\FrontEnd\ShouldNSees.cs" />
     <Compile Include="ACommon\STEPS\FrontEnd\Navigates.cs" />
-    <Compile Include="CLinkedin\Features\BackEnd\SignIn\NewBusiness1.feature.cs">
+    <Compile Include="CLinkedin\Features\BackEnd\SignIn\Service.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NewBusiness.feature</DependentUpon>
-    </Compile>
-    <Compile Include="CLinkedin\Features\FrontEnd\FullSurrender\FullSurrender.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FullSurrender.feature</DependentUpon>
-    </Compile>
-    <Compile Include="CLinkedin\Features\FrontEnd\NewBusiness\NewBusiness.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NewBusiness.feature</DependentUpon>
+      <DependentUpon>Service.feature</DependentUpon>
     </Compile>
     <Compile Include="CLinkedin\Features\FrontEnd\SignIn\SignIN1.feature.cs">
       <AutoGen>True</AutoGen>
@@ -203,17 +193,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="CLinkedin\Features\BackEnd\SignIn\NewBusiness.feature">
+    <None Include="CLinkedin\Features\BackEnd\SignIn\Service.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>NewBusiness1.feature.cs</LastGenOutput>
-    </None>
-    <None Include="CLinkedin\Features\FrontEnd\FullSurrender\FullSurrender.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>FullSurrender.feature.cs</LastGenOutput>
-    </None>
-    <None Include="CLinkedin\Features\FrontEnd\NewBusiness\NewBusiness.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>NewBusiness.feature.cs</LastGenOutput>
+      <LastGenOutput>Service.feature.cs</LastGenOutput>
     </None>
     <None Include="CLinkedin\Features\FrontEnd\SignIn\SignIN.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
