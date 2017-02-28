@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace ProductTests.Common
@@ -49,8 +50,17 @@ namespace ProductTests.Common
                         {
                             string testDir = dirInfo.Name.ToString();
                             string targetFile = defaultTestRestultDirectory + "\\" + testDir + "\\" + testFile;
-                            File.Move(sourceFile, targetFile);
-                            File.Delete(sourceFile);
+
+                            try
+                            {
+                                File.Move(sourceFile, targetFile);
+                                File.Delete(sourceFile);
+                            }
+                            catch (IOException ex)
+                            {
+                                Thread.Sleep(250);
+                            }
+
                         }
                     }
                 }
@@ -103,15 +113,14 @@ namespace ProductTests.Common
                     case "DB":
                         {
                             Console.WriteLine("DB Tests ...");
-                            goto test_does_not_need_driver;
                             current_driver = "DB";
-
+                            goto test_does_not_need_driver;
                         }
                     case "Service":
                         {
                             Console.WriteLine("Service Tests ...");
-                            goto test_does_not_need_driver;
                             current_driver = "Service";
+                            goto test_does_not_need_driver;     
                         }
                     default:
                         {
@@ -136,7 +145,7 @@ namespace ProductTests.Common
         public static void DriverClose()
         {
 
-            if (current_driver == "DB" || current_driver == "Service") { goto endtest; }
+            if ((current_driver == "Chrome") || (current_driver == "Firefox") || (current_driver == "IE")) {
 
             if (ScenarioContext.Current.TestError != null)
             {
@@ -148,11 +157,11 @@ namespace ProductTests.Common
 
                 Console.WriteLine("Test Failed ScreenShoot saved with " + testImage.ToString() + " name at " + systemTime + " to " + currentTestRestultDirectory);
             }
-  
-                driver.Close();
-                driver.Quit(); 
 
-            endtest:;
+            driver.Close();
+            driver.Quit();
+
+           }
         }
 
 

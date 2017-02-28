@@ -4,12 +4,14 @@ using System.Threading;
 using TechTalk.SpecFlow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProductTests.Pages;
+using ProductTests.Common;
+using ProductTests.Common.Steps.FrontEnd;
 
-namespace ProductTests.Common.Steps.FrontEnd
+namespace ProductTests.XClients.SpecSteps.FrontEnd
 {
     [Binding]
 
-    public class Common
+    public class SpecSteps
     {
         public IWebElement webelement = null;
         public string element_locator = null;

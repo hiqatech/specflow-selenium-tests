@@ -146,43 +146,43 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ACommon\SRC\Config.cs" />
-    <Compile Include="ACommon\SRC\Messenger.cs" />
-    <Compile Include="ACommon\Utils\InspectorBehavior.cs" />
-    <Compile Include="ACommon\Utils\MyMessageInspector .cs" />
-    <Compile Include="ACommon\STEPS\BackEnd\DataBase\DataBase.cs" />
-    <Compile Include="ACommon\SRC\Load.cs" />
-    <Compile Include="ACommon\STEPS\BackEnd\Service\NewBusiness.cs" />
-    <Compile Include="ACommon\STEPS\FrontEnd\AllPages.cs" />
-    <Compile Include="ACommon\STEPS\BackEnd\Service\CreateTestData.cs" />
-    <Compile Include="ACommon\STEPS\BackEnd\DataBase\CompareResults.cs" />
-    <Compile Include="ACommon\STEPS\BackEnd\DataBase\DataBaseRead.cs" />
-    <Compile Include="ACommon\STEPS\BackEnd\DataBase\DataBaseVerify.cs" />
-    <Compile Include="ACommon\STEPS\BackEnd\DataBase\DataBaseWrite.cs" />
-    <Compile Include="ACommon\STEPS\BackEnd\Service\Services.cs" />
-    <Compile Include="ACommon\STEPS\FrontEnd\Enters.cs" />
-    <Compile Include="ACommon\SRC\Helper.cs" />
-    <Compile Include="ACommon\STEPS\FrontEnd\Selects.cs" />
-    <Compile Include="ACommon\SRC\SetUp.cs" />
-    <Compile Include="ACommon\STEPS\FrontEnd\ShouldNSees.cs" />
-    <Compile Include="ACommon\STEPS\FrontEnd\Navigates.cs" />
-    <Compile Include="CLinkedin\Features\BackEnd\SignIn\Service.feature.cs">
+    <Compile Include="Common\SRC\Config.cs" />
+    <Compile Include="Common\SRC\Messenger.cs" />
+    <Compile Include="Common\STEPS\BackEnd\Service\CreateRequest.cs" />
+    <Compile Include="Common\Utils\ExtensionAttribute.cs" />
+    <Compile Include="Common\Utils\InspectorBehavior.cs" />
+    <Compile Include="Common\Utils\MyMessageInspector .cs" />
+    <Compile Include="Common\STEPS\BackEnd\DataBase\DataBase.cs" />
+    <Compile Include="Common\SRC\Load.cs" />
+    <Compile Include="Common\STEPS\FrontEnd\AllPages.cs" />
+    <Compile Include="Common\STEPS\BackEnd\DataBase\CompareResults.cs" />
+    <Compile Include="Common\STEPS\BackEnd\DataBase\DataBaseRead.cs" />
+    <Compile Include="Common\STEPS\BackEnd\DataBase\DataBaseVerify.cs" />
+    <Compile Include="Common\STEPS\BackEnd\DataBase\DataBaseWrite.cs" />
+    <Compile Include="Common\STEPS\BackEnd\Service\Services.cs" />
+    <Compile Include="Common\STEPS\FrontEnd\Enters.cs" />
+    <Compile Include="Common\SRC\Helper.cs" />
+    <Compile Include="Common\STEPS\FrontEnd\Selects.cs" />
+    <Compile Include="Common\SRC\SetUp.cs" />
+    <Compile Include="Common\STEPS\FrontEnd\ShouldNSees.cs" />
+    <Compile Include="Common\STEPS\FrontEnd\Navigates.cs" />
+    <Compile Include="XClients\Linkedin\Features\BackEnd\SignIn\Service.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Service.feature</DependentUpon>
     </Compile>
-    <Compile Include="CLinkedin\Features\FrontEnd\SignIn\SignIN1.feature.cs">
+    <Compile Include="XClients\Linkedin\Features\FrontEnd\SignIn\SignIN1.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SignIN.feature</DependentUpon>
     </Compile>
-    <Compile Include="CLinkedin\Pages\MainPage.cs" />
-    <Compile Include="CLinkedin\Pages\SignInPage.cs" />
-    <Compile Include="CLinkedin\Pages\SignOutPage.cs" />
+    <Compile Include="XClients\Linkedin\Pages\MainPage.cs" />
+    <Compile Include="XClients\Linkedin\Pages\SignInPage.cs" />
+    <Compile Include="XClients\Linkedin\Pages\SignOutPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ACommon\STEPS\FrontEnd\ShouldSees.cs" />
-    <Compile Include="CLinkedin\SpecSteps.cs" />
-    <Compile Include="ACommon\Utils\TableExtensions.cs" />
+    <Compile Include="Common\STEPS\FrontEnd\ShouldSees.cs" />
+    <Compile Include="XClients\Linkedin\SpecSteps.cs" />
+    <Compile Include="Common\Utils\TableExtensions.cs" />
     <Compile Include="Service References\DartaBusinessServices\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -193,15 +193,15 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="CLinkedin\Features\BackEnd\SignIn\Service.feature">
+    <None Include="XClients\Linkedin\Features\BackEnd\SignIn\Service.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Service.feature.cs</LastGenOutput>
     </None>
-    <None Include="CLinkedin\Features\FrontEnd\SignIn\SignIN.feature">
+    <None Include="XClients\Linkedin\Features\FrontEnd\SignIn\SignIN.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>SignIN1.feature.cs</LastGenOutput>
     </None>
-    <None Include="CLinkedin\Features\FrontEnd\SignIn\TestData.xlsx" />
+    <None Include="XClients\Linkedin\Features\FrontEnd\SignIn\TestData.xlsx" />
     <None Include="Default.srprofile">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -450,10 +450,10 @@
     <None Include="Service References\DartaBusinessServices\BusinessService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CLinkedin\Features\BackEnd\SignUp\" />
-    <Folder Include="CLinkedin\Features\FrontEnd\SignUp\" />
-    <Folder Include="CYahoo\Features\" />
-    <Folder Include="CYahoo\Pages\" />
+    <Folder Include="XClients\Linkedin\Features\BackEnd\SignUp\" />
+    <Folder Include="XClients\Linkedin\Features\FrontEnd\SignUp\" />
+    <Folder Include="XClients\Yahoo\Features\" />
+    <Folder Include="XClients\Yahoo\Pages\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

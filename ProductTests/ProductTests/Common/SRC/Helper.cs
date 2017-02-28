@@ -5,9 +5,9 @@ using OpenQA.Selenium.Interactions;
 using System.Reflection;
 using System.IO;
 using System.Drawing.Imaging;
-using ProductTests.Common.Steps.FrontEnd;
-using TechTalk.SpecFlow;
+using System.Globalization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TechTalk.SpecFlow;
 using ProductTests.Pages;
 
 namespace ProductTests.Common
@@ -22,7 +22,6 @@ namespace ProductTests.Common
         public static int shortSleepTime = 100;
         public static int longSleepTime = 10000;
         public static IWebElement webelement;
-        public static string random_string = null;
 
 
         public static void shortSleep()
@@ -47,15 +46,12 @@ namespace ProductTests.Common
             if (SetUp.current_driver == "Firefox" || to == "click")
             {
                 webelement.Click();
-                goto action_done;
+                goto firefox_action_done;
             }
 
             Actions actions = new Actions(SetUp.driver);
             actions.MoveToElement(webelement);
             actions.Perform();
-
-            if (to == "moveto")
-                goto action_done;
 
             if (to == "safeclick")
                 webelement.Click();
@@ -63,8 +59,8 @@ namespace ProductTests.Common
                 webelement.SendKeys(Keys.Return);
             else
                 webelement.SendKeys(Keys.Enter);
-
-            action_done:;
+            
+        firefox_action_done:;
         }
 
         public static bool isDisplayed(IWebElement webelement,string element_name)
@@ -148,8 +144,8 @@ namespace ProductTests.Common
         }
 
 
-        public static string GenerateRandomString(int length , string startswith) {
-
+        public static string GenerateRandomString(int length , string startswith)
+        {
             string systemTime = DateTime.Now.ToString("yyyyMMddHHmmss"); 
             double datenumber = double.Parse(systemTime); 
             string datestring = datenumber.ToString(); 
@@ -157,10 +153,20 @@ namespace ProductTests.Common
             int remove = datestring.Length - random_lenght; 
             string random_string = (datestring.Remove(1, remove));
             random_string = startswith + random_string;
-
             return random_string;
-
         }
+
+        public static String GetDynamicDate(string value)
+        {
+            value = value.Replace("system_date", "");
+            value = value + ".00";
+            double days = double.Parse(value, NumberStyles.AllowLeadingSign | NumberStyles.AllowDecimalPoint);
+            value = DataBase.system_date.AddDays(days).ToString("ddMMyyyy");
+            return value;
+        }
+
+
+        public static string random_string = null;
 
         [TestMethod]
         [Given(@"I wait (.*) sec")]
@@ -180,8 +186,6 @@ namespace ProductTests.Common
             random_string = Helper.GenerateRandomString(length, startswith);
             Console.WriteLine(random_string);
         }
-
-
 
     }
 

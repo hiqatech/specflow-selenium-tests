@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace ProductTests.Pages
+namespace ProductTests.XClients.LinkedIn.Pages
 {
     class MainPage
     {

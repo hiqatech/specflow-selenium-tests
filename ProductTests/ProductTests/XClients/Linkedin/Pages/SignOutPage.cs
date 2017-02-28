@@ -1,24 +1,27 @@
 ﻿
 using System.Collections.Generic;
 
-namespace ProductTests.Pages
+
+namespace ProductTests.XClients.LinkedIn.Pages
 {
-    class SignInPage
+    class SignOutPage
     {
 
-        public static Dictionary<string, string> element_locators = new Dictionary<string, string>()
+             public static Dictionary<string, string> element_locators = new Dictionary<string, string>()
         {
-            { "select_language_dropdown", "" },
-            { "english_language_selection", "" },
-            { "accept_cookies_button", "button#dismiss-alert" },
             { "user_name_entry", "input#login-email" },
             { "pass_word_entry", "input#login-password" },
             { "sign_in_button", "input#login-submit" },
+            { "signed_out_message", "#page-title > h1" },
+            { "close_cooky_policy_alert", "#dismiss-alert" },
+
+            
 
             { "loading_message", "?" },
             { "Complete", "Complete" }
 
+
          };
 
-        }
     }
+}

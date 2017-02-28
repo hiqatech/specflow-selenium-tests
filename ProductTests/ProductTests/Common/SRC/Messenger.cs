@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace ProductTests.ACommon.SRC
+namespace ProductTests.Common.SRC
 {
     class Messenger
     {

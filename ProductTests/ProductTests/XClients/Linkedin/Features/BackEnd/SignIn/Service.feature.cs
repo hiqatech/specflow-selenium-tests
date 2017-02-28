@@ -10,14 +10,14 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace ProductTests.CLinkedin.Features.BackEnd.SignIn
+namespace ProductTests.XClients.Linkedin.Features.BackEnd.SignIn
 {
     using TechTalk.SpecFlow;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("BackEndNewBusiness", SourceFile="CLinkedin\\Features\\BackEnd\\SignIn\\Service.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("BackEndNewBusiness", SourceFile="XClients\\Linkedin\\Features\\BackEnd\\SignIn\\Service.feature", SourceLine=0)]
     public partial class BackEndNewBusinessFeature
     {
         

@@ -52,7 +52,7 @@ namespace ProductTests.Common.Steps.FrontEnd
             }
 
             if (entry.Contains("random"))
-                entry = Common.random_string;
+                entry = Helper.random_string;
 
             if (entry.Contains("query_result"))
             entry = DataBaseRead.query_result_string;

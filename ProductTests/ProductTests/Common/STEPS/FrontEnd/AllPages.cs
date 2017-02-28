@@ -2,6 +2,7 @@
 using System;
 using TechTalk.SpecFlow;
 using ProductTests.Common;
+using ProductTests.XClients.LinkedIn.Pages;
 
 namespace ProductTests.Pages
 {
@@ -16,6 +17,51 @@ namespace ProductTests.Pages
         public static string CurrentProductName = null;
 
         public static IWebElement GetWebElement(string element_name)
+        {
+            if (CurrentProductName.Contains("Linkedin"))
+            {
+                GetLinkedInWebElement(element_name);
+                return webelement;
+            }
+
+           // else if (CurrentProductName.Contains("Yahoo"))
+           // {
+           //     GetYahooWebElement(element_name);
+           //     return webelement
+           // }
+
+            else
+            {
+                Console.WriteLine(CurrentProductName + " page has not defined yet in the test pages");
+                return webelement;
+            }
+                
+        }
+
+        public static String GetElementLocator(string element_name)
+        {
+            if (CurrentProductName.Contains("Linkedin"))
+            {
+                GetLinkedInElementLocator(element_name);
+                return element_locator;
+            }
+
+            // else if (CurrentProductName.Contains("Yahoo"))
+            // {
+            //     GetYahooElementLocator(element_name);
+            //     return webelement
+            // }
+
+            else
+            {
+                Console.WriteLine(CurrentProductName + " page has not defined yet in the test pages");
+                return element_locator;
+            }
+
+        }
+
+
+        public static IWebElement GetLinkedInWebElement(string element_name)
         {
             switch (CurrentPageName)
             {
@@ -46,7 +92,7 @@ namespace ProductTests.Pages
 
         }
 
-        public static String GetElementLocator(string element_name)
+        public static String GetLinkedInElementLocator(string element_name)
         {
 
             switch (CurrentPageName)
