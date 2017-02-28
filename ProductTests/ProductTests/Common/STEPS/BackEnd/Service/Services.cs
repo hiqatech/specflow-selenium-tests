@@ -1,14 +1,10 @@
 ﻿using System;
 using TechTalk.SpecFlow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProductTests.Common;
-using ProductTests.DartaBusinessServices;
 using System.ServiceModel.Channels;
 using ProductTests.Common.SRC;
-using System.ServiceModel;
 using System.Xml;
 using ProductTests.Utils;
-using System.IO;
 
 namespace ProdutcTests.Common.Steps.BackEnd
 {

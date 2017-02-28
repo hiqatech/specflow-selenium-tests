@@ -8,7 +8,8 @@ using System.Drawing.Imaging;
 using System.Globalization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
-using ProductTests.Pages;
+using ProductTests.Common.Steps.FrontEnd;
+using ProdutcTests.Common.Steps.BackEnd;
 
 namespace ProductTests.Common
 {

@@ -1,10 +1,9 @@
 ﻿using OpenQA.Selenium;
 using System;
 using TechTalk.SpecFlow;
-using ProductTests.Common;
 using ProductTests.XClients.LinkedIn.Pages;
 
-namespace ProductTests.Pages
+namespace ProductTests.Common.Steps.FrontEnd
 {
     [Binding]
 

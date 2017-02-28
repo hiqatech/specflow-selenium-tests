@@ -2,11 +2,9 @@
 using TechTalk.SpecFlow;
 using OpenQA.Selenium;
 using System.Globalization;
-using System.Data;
-using System.Data.SqlClient;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProdutcTests.Common.Steps.BackEnd;
-using ProductTests.Pages;
+using ProductTests.Common.Steps.FrontEnd;
 
 namespace ProductTests.Common.Steps.FrontEnd
 {

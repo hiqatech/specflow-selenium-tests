@@ -3,7 +3,6 @@ using System;
 using System.Threading;
 using TechTalk.SpecFlow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProductTests.Pages;
 using ProductTests.Common;
 using ProductTests.Common.Steps.FrontEnd;
 

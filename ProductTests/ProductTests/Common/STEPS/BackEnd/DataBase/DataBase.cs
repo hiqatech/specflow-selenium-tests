@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Globalization;
 
-namespace ProductTests.Common
+namespace ProdutcTests.Common.Steps.BackEnd
 {
 
     [Binding]
