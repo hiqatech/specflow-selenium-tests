@@ -176,6 +176,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SignIN.feature</DependentUpon>
     </Compile>
+    <Compile Include="XClients\Linkedin\Features\IHAveATable.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IHAveATable.feature</DependentUpon>
+    </Compile>
     <Compile Include="XClients\Linkedin\Pages\MainPage.cs" />
     <Compile Include="XClients\Linkedin\Pages\SignInPage.cs" />
     <Compile Include="XClients\Linkedin\Pages\SignOutPage.cs" />
@@ -421,6 +426,10 @@
     </None>
     <None Include="SpecRunTestProfile.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="XClients\Linkedin\Features\IHAveATable.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>IHAveATable.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
