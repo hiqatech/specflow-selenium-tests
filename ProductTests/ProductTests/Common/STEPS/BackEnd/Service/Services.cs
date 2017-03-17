@@ -38,7 +38,7 @@ namespace ProdutcTests.Common.Steps.BackEnd
         [Then(@"I have a (.*) request to (.*)")]
         public static void IHaveARequest(string requestName, string operation, Table datatable)
         {
-            var keyvaluepairs = TableExtensions.DataToDictionary(datatable,"vertical",1);
+            var keyvaluepairs = TableExtensions.DataToDictionary(datatable,"vertical",0,1);
             string serviceName = Config.serviceName;
 
             EmptyRequestXML = CreateRequest.GetEmptyRequestXML(requestName);

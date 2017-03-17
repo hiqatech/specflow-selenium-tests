@@ -13,7 +13,7 @@ namespace ProductTests.Utils
     class TableExtensions
     {
 
-        public static Dictionary<string, string> DataToDictionary(Table table, string orientation, int colunm)
+        public static Dictionary<string, string> DataToDictionary(Table table, string orientation, int cl1,int cl2)
         {
             var VDictionary = new Dictionary<string, string>();
             var HDictionary = new Dictionary<string, string>();
@@ -23,15 +23,15 @@ namespace ProductTests.Utils
             {
                 foreach (var row in table.Rows)
                 {
-                    VDictionary.Add(row[0], row[colunm]);
+                    VDictionary.Add(row[cl1], row[cl2]);
                 }
 
-                List<string> keys = new List<string>(VDictionary.Keys);
-                foreach (var key in keys)
-                {
-                    if (VDictionary[key].Contains("system_date"))
-                        VDictionary[key] = Helper.GetDynamicDate(VDictionary[key]);
-                }
+               // List<string> keys = new List<string>(VDictionary.Keys);
+               // foreach (var key in keys)
+               // {
+               //     if (VDictionary[key].Contains("system_date"))
+               //         VDictionary[key] = Helper.GetDynamicDate(VDictionary[key]);
+               // }
 
                 return VDictionary;
             }
@@ -71,16 +71,21 @@ namespace ProductTests.Utils
             Dictionary<string, string> Dictionary = new Dictionary<string, string>();
             if (orientation == "multi")
             {
-                Dictionary = DataToDictionary(table, orientation, 2);
-
+                Dictionary = DataToDictionary(table, orientation, 0,1);
+                Console.WriteLine("Table1");
+                printDictionary(Dictionary);
+               
+                Dictionary = DataToDictionary(table, orientation, 0, 2);
+                Console.WriteLine("Table2");
                 printDictionary(Dictionary);
 
             }
 
-            Dictionary = DataToDictionary(table,orientation,1);
-
-            printDictionary(Dictionary);
-
+            if (orientation == "horizontal")
+            {
+                Dictionary = DataToDictionary(table, orientation, 0, 1);
+                printDictionary(Dictionary);
+            }
         }
 
         public static void printDictionary(Dictionary<string, string> dictionary)
