@@ -70,59 +70,77 @@ namespace ProductTests.XClients.Linkedin.Features
 #line 4
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "Key",
                         "Value"});
-            table1.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "ID",
                         "01"});
-            table1.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "date",
                         "17.03.17"});
-            table1.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "numer",
                         "999"});
-            table1.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "letter",
                         "a"});
 #line 5
-testRunner.Given("I have a vertical table", ((string)(null)), table1, "Given ");
+testRunner.Given("I have a vertical table", ((string)(null)), table2, "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
                         "Date",
                         "Number",
                         "Letter"});
-            table2.AddRow(new string[] {
+            table3.AddRow(new string[] {
                         "01",
                         "17.03.17",
                         "999",
                         "a"});
 #line 11
-testRunner.Given("I have a horizontal table", ((string)(null)), table2, "Given ");
+testRunner.Given("I have a horizontal table", ((string)(null)), table3, "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "Key",
                         "Value",
                         "Table"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "ID",
                         "01",
                         "ID_Table"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "Date",
                         "17.03.17",
                         "Date_Table"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "Numer",
                         "999",
                         "Number_Table"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "Letter",
                         "a",
                         "Letter_Table"});
 #line 14
-testRunner.Given("I have a multi table", ((string)(null)), table3, "Given ");
+testRunner.Given("I have a verticalmulti table", ((string)(null)), table4, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Date",
+                        "Number",
+                        "Letter"});
+            table5.AddRow(new string[] {
+                        "01",
+                        "17.03.17",
+                        "999",
+                        "a"});
+            table5.AddRow(new string[] {
+                        "ID_Table",
+                        "Date_Table",
+                        "Number_Table",
+                        "Letter_Table"});
+#line 20
+testRunner.Given("I have a horizontalmulti table", ((string)(null)), table5, "Given ");
 #line hidden
             this.ScenarioCleanup();
         }

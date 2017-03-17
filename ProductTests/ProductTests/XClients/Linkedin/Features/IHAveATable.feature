@@ -11,9 +11,13 @@ Given I have a vertical table
 Given I have a horizontal table
 | ID		|	Date		|	Number	|	Letter	|
 | 01		|	17.03.17	|	999		|	a		|
-Given I have a multi table
+Given I have a verticalmulti table
 | Key		|	Value		|Table			|
 | ID		|	01			| ID_Table		|
 | Date		|	17.03.17	|Date_Table		|
 | Numer		|	999			|Number_Table	|
 | Letter	|	a			|Letter_Table	|
+Given I have a horizontalmulti table
+| ID		|	Date		|	Number		|	Letter		|
+| 01		|	17.03.17	|	999			|	a			|
+| ID_Table	|	Date_Table	|Number_Table	|Letter_Table	|
