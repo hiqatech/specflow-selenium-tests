@@ -8,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace ProdutcTests.Common.Steps.BackEnd
 {
     [Binding]
-    class CompareResults
+    class CompareXmlResults
     {
         
         [TestMethod]

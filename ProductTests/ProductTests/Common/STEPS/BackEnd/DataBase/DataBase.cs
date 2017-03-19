@@ -19,6 +19,7 @@ namespace ProdutcTests.Common.Steps.BackEnd
         public static string myPassword = null;
         public static string connectionString = null;
         public static DateTime system_date;
+        public static string currentDataBase = null;
 
 
         [TestMethod]
@@ -31,13 +32,13 @@ namespace ProdutcTests.Common.Steps.BackEnd
             {
                 case "SERV8604":
                     {
-                        connectionString = "Data Source = serv8604; Initial Catalog = DartaUATR1; Integrated Security = True";
+                        connectionString = "Data Source = serv8604; Initial Catalog = "+ database + "; Integrated Security = True";
 
                         SqlConnection connection = new SqlConnection(connectionString);
                         connection.Open();
                         Console.WriteLine("connected" + connectionString);
                         connection.Close();
-
+                        currentDataBase = database;
                         break;
                     }
                 default:

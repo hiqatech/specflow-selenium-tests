@@ -12,18 +12,25 @@ namespace ProductTests.Utils
 
     class TableExtensions
     {
+        public static Dictionary<string,string> PolicyNumberDictionary = null;
 
-        public static Dictionary<string, string> DataToDictionary(Table table, string orientation, int valueto)
+        public static void fillPolicyNumberDictionary()
+        {
+            PolicyNumberDictionary = new Dictionary<string, string>();
+            PolicyNumberDictionary.Add("0","0100000001");
+            PolicyNumberDictionary.Add("1","0100000002");
+        }
+
+        public static Dictionary<string, string> DataToDictionary(Table table, int valueto)
         {
             var VDictionary = new Dictionary<string, string>();
             var HDictionary = new Dictionary<string, string>();
 
-
-            if (orientation.Contains("vertical"))
-            {
+            if (table.Header.Contains("Key"))
+                {
                 foreach (var row in table.Rows)
                 {
-                    VDictionary.Add(row[0], row[valueto]);
+                    VDictionary.Add(row[0], row[valueto+1]);
                 }
 
                // List<string> keys = new List<string>(VDictionary.Keys);
@@ -36,7 +43,7 @@ namespace ProductTests.Utils
                 return VDictionary;
             }
 
-            if (orientation.Contains("horizontal"))
+            else
             {
                 int i = 0;
                 int j = table.Header.Count;
@@ -53,57 +60,10 @@ namespace ProductTests.Utils
 
              }
 
-            else return VDictionary;
-
         }
     
 
-        [TestMethod]
-        [Given(@"I have a (.*) table")]
-        [When(@"I have a (.*) table")]
-        [Then(@"I have a (.*) table")]
-        public static void IHaveATable(string orientation, Table table)
-        {
-           
-            Dictionary<string, string> Dictionary = new Dictionary<string, string>();
-
-            if (orientation == "vertical")
-            {
-                Dictionary = DataToDictionary(table, orientation, 1);
-                printDictionary(Dictionary);
-            }
-
-            if (orientation == "horizontal")
-            {
-                Dictionary = DataToDictionary(table, orientation, 0);
-                printDictionary(Dictionary);
-            }
-
-            if (orientation == "verticalmulti")
-            {
-                Dictionary = DataToDictionary(table, orientation, 1);
-                Console.WriteLine("verticalmultiTable1");
-                printDictionary(Dictionary);
-
-                Dictionary = DataToDictionary(table, orientation, 2);
-                Console.WriteLine("verticalmultiTable2");
-                printDictionary(Dictionary);
-
-            }
-
-            if (orientation == "horizontalmulti")
-            {
-                Dictionary = DataToDictionary(table, orientation, 0);
-                Console.WriteLine("horizontalmultiTable1");
-                printDictionary(Dictionary);
-
-                Dictionary = DataToDictionary(table, orientation, 1);
-                Console.WriteLine("horizontalmultiTable2");
-                printDictionary(Dictionary);
-
-            }
-
-        }
+      
 
         public static void printDictionary(Dictionary<string, string> dictionary)
         {

@@ -60,7 +60,7 @@ namespace ProdutcTests.Common.Steps.BackEnd
         public static XmlDocument GetRequestXMLWithData(Table requestTable, string requestName, XmlDocument EmptyRequestXML)
         {
 
-            Dictionary<string, string> myDictionary = TableExtensions.DataToDictionary(requestTable,"vertical",1);
+            Dictionary<string, string> myDictionary = TableExtensions.DataToDictionary(requestTable,1);
 
             XmlNodeList nodeList;
             

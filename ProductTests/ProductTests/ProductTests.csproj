@@ -155,7 +155,7 @@
     <Compile Include="Common\STEPS\BackEnd\DataBase\DataBase.cs" />
     <Compile Include="Common\SRC\Load.cs" />
     <Compile Include="Common\STEPS\FrontEnd\AllPages.cs" />
-    <Compile Include="Common\STEPS\BackEnd\DataBase\CompareResults.cs" />
+    <Compile Include="Common\STEPS\BackEnd\DataBase\CompareXmlResults.cs" />
     <Compile Include="Common\STEPS\BackEnd\DataBase\DataBaseRead.cs" />
     <Compile Include="Common\STEPS\BackEnd\DataBase\DataBaseVerify.cs" />
     <Compile Include="Common\STEPS\BackEnd\DataBase\DataBaseWrite.cs" />

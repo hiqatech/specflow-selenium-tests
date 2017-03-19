@@ -61,11 +61,11 @@ namespace ProductTests.XClients.Linkedin.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("I have a table to print", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("I have a vertical table to verify", new string[] {
                 "mytag"}, SourceLine=3)]
-        public virtual void IHaveATableToPrint()
+        public virtual void IHaveAVerticalTableToVerify()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I have a table to print", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I have a vertical table to verify", new string[] {
                         "mytag"});
 #line 4
 this.ScenarioSetup(scenarioInfo);
@@ -88,6 +88,16 @@ this.ScenarioSetup(scenarioInfo);
 #line 5
 testRunner.Given("I have a vertical table", ((string)(null)), table2, "Given ");
 #line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("I have a horizontal table to verify", SourceLine=11)]
+        public virtual void IHaveAHorizontalTableToVerify()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I have a horizontal table to verify", ((string[])(null)));
+#line 12
+this.ScenarioSetup(scenarioInfo);
+#line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
                         "Date",
@@ -98,8 +108,18 @@ testRunner.Given("I have a vertical table", ((string)(null)), table2, "Given ");
                         "17.03.17",
                         "999",
                         "a"});
-#line 11
+#line 13
 testRunner.Given("I have a horizontal table", ((string)(null)), table3, "Given ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("The 1st policy database entries should be", SourceLine=16)]
+        public virtual void The1StPolicyDatabaseEntriesShouldBe()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The 1st policy database entries should be", ((string[])(null)));
+#line 17
+this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "Key",
@@ -121,8 +141,18 @@ testRunner.Given("I have a horizontal table", ((string)(null)), table3, "Given "
                         "Letter",
                         "a",
                         "Letter_Table"});
-#line 14
-testRunner.Given("I have a verticalmulti table", ((string)(null)), table4, "Given ");
+#line 18
+testRunner.Given("The policy 0 database entries should be", ((string)(null)), table4, "Given ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("The 2nd policy database entries should be", SourceLine=24)]
+        public virtual void The2NdPolicyDatabaseEntriesShouldBe()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The 2nd policy database entries should be", ((string[])(null)));
+#line 25
+this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
@@ -139,8 +169,8 @@ testRunner.Given("I have a verticalmulti table", ((string)(null)), table4, "Give
                         "Date_Table",
                         "Number_Table",
                         "Letter_Table"});
-#line 20
-testRunner.Given("I have a horizontalmulti table", ((string)(null)), table5, "Given ");
+#line 26
+testRunner.Given("The policy 1 database entries should be", ((string)(null)), table5, "Given ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -21,7 +21,8 @@ namespace ProdutcTests.Common.Steps.BackEnd
         public static string compareResultPath = queryResultSubFolderName + compareResultName;
         public static string XML_FILE = null;
         public static string query_result_string;
-        public static string policy_query_result_string;
+        public static string query_result_key_value;
+        public static string curentPolicyNumber;
 
         [TestMethod]
         [Given(@"I select (.*) way (.*) where (.*) from the (.*) table")]
@@ -32,7 +33,7 @@ namespace ProdutcTests.Common.Steps.BackEnd
             ISelectInTheSQLDB(how, searchfor, where, table);
         }
 
-        public void ISelectInTheSQLDB(string how, string searchfor, string where, string table)
+        public static void ISelectInTheSQLDB(string how, string searchfor, string where, string table)
         {
             if (!Directory.Exists(queryResultSubFolderName))
             {
@@ -46,15 +47,12 @@ namespace ProdutcTests.Common.Steps.BackEnd
                 Console.WriteLine(XML_FILE);
                 queryCount = queryCount + 1;
 
-            if (where.Contains("current") && where.Contains("PolicyNumber") )
-            { where = where.Replace("current", policy_query_result_string); }
-
-            if (where.Contains("current"))
-            { where = where.Replace("current", query_result_string); }
+            //if (where.Contains("current") && where.Contains("PolicyNumber") )
+            //{ where = where.Replace("current", "PolicyNumber='"policy_query_result_string'); }
 
             string sqlQuery = null;
 
-            sqlQuery = "SELECT TOP 1 [" + searchfor + "] FROM [DartaUATR1].[dbo].[" + table + "] WHERE "
+            sqlQuery = "SELECT TOP 1 [" + searchfor + "] FROM ["+DataBase.currentDataBase+"].[dbo].[" + table + "] WHERE "
                 + where;
 
             if (how == "random")
@@ -73,10 +71,18 @@ namespace ProdutcTests.Common.Steps.BackEnd
                 dataSet.WriteXml(XML_FILE);
 
                 query_result_string = dataSet.Tables[0].Rows[0][searchfor].ToString();
+
+                for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                {
+                    string rowvalue = dataSet.Tables[0].Rows[i][searchfor].ToString();
+
+                    query_result_key_value = query_result_string + rowvalue;
+
+                }
             }
 
             if (searchfor == "PolicyNumber")
-                policy_query_result_string = query_result_string;
+                curentPolicyNumber = query_result_string;
 
             Console.WriteLine(query_result_string);
         }
