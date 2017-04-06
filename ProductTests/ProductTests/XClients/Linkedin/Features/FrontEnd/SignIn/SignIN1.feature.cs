@@ -61,7 +61,7 @@ namespace ProductTests.XClients.Linkedin.Features.FrontEnd.SignIn
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void Chrome_ICanSigninAsAUserWithCorrectUsernameAndPassword(string user_Name, string pass_Word, string[] exampleTags)
+        public virtual void ICanSigninAsAUserWithCorrectUsernameAndPassword(string driver, string user_Name, string pass_Word, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "Regression"};
@@ -69,11 +69,13 @@ namespace ProductTests.XClients.Linkedin.Features.FrontEnd.SignIn
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Chrome - I can signin as a user with correct username and password", @__tags);
-#line 5
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can signin as a user with correct username and password", @__tags);
+#line 4
 this.ScenarioSetup(scenarioInfo);
+#line 5
+testRunner.Given(string.Format("I start the WebDriver with {0} browser", driver), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 6
-testRunner.Given("I navigate to the https://www.linkedin.com/ website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.And("I navigate to the https://www.linkedin.com/ website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 7
 testRunner.And("I am on the SignInPage page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 8
@@ -98,16 +100,15 @@ testRunner.And("I should see the user_name_entry element", ((string)(null)), ((T
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Chrome - I can signin as a user with correct username and password, kiszols@yahoo" +
-            ".com", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("I can signin as a user with correct username and password, Chrome", new string[] {
                 "Regression"}, SourceLine=20)]
-        public virtual void Chrome_ICanSigninAsAUserWithCorrectUsernameAndPassword_KiszolsYahoo_Com()
+        public virtual void ICanSigninAsAUserWithCorrectUsernameAndPassword_Chrome()
         {
-            this.Chrome_ICanSigninAsAUserWithCorrectUsernameAndPassword("kiszols@yahoo.com", "Stridentb52", ((string[])(null)));
+            this.ICanSigninAsAUserWithCorrectUsernameAndPassword("Chrome", "kiszols@yahoo.com", "Stridentb52", ((string[])(null)));
 #line hidden
         }
         
-        public virtual void Chrome_ICanSigninSignoutWithCorrectUsernameAndPassword(string user_Name, string pass_Word, string[] exampleTags)
+        public virtual void ICanSigninSignoutWithCorrectUsernameAndPassword(string driver, string user_Name, string pass_Word, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "Regression"};
@@ -115,27 +116,28 @@ testRunner.And("I should see the user_name_entry element", ((string)(null)), ((T
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Chrome - I can signin/signout with correct username and password", @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I can signin/signout with correct username and password", @__tags);
 #line 24
 this.ScenarioSetup(scenarioInfo);
 #line 25
-testRunner.Given("I navigate to the https://www.linkedin.com/ website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given(string.Format("I start the WebDriver with {0} browser", driver), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 26
-testRunner.And("I am on the SignInPage page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I navigate to the https://www.linkedin.com/ website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 27
-testRunner.And(string.Format("I login with {0} username and {1} password", user_Name, pass_Word), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I am on the SignInPage page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 28
+testRunner.And(string.Format("I login with {0} username and {1} password", user_Name, pass_Word), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 29
 testRunner.And("I should signout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Chrome - I can signin/signout with correct username and password, kiszols@yahoo.c" +
-            "om", new string[] {
-                "Regression"}, SourceLine=31)]
-        public virtual void Chrome_ICanSigninSignoutWithCorrectUsernameAndPassword_KiszolsYahoo_Com()
+        [TechTalk.SpecRun.ScenarioAttribute("I can signin/signout with correct username and password, Chrome", new string[] {
+                "Regression"}, SourceLine=32)]
+        public virtual void ICanSigninSignoutWithCorrectUsernameAndPassword_Chrome()
         {
-            this.Chrome_ICanSigninSignoutWithCorrectUsernameAndPassword("kiszols@yahoo.com", "Stridentb52", ((string[])(null)));
+            this.ICanSigninSignoutWithCorrectUsernameAndPassword("Chrome", "kiszols@yahoo.com", "Stridentb52", ((string[])(null)));
 #line hidden
         }
         

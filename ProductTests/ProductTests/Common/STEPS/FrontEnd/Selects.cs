@@ -28,7 +28,7 @@ namespace ProductTests.Common.Steps.FrontEnd
 
             if (element_name.Contains("alert"))
             {
-                SetUp.driver.SwitchTo().Alert().Accept();
+                SetUp.webDriver.SwitchTo().Alert().Accept();
                 goto element_select_done;
             }
 

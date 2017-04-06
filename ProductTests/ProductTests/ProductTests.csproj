@@ -149,9 +149,6 @@
     <Compile Include="Common\SRC\Config.cs" />
     <Compile Include="Common\SRC\Messenger.cs" />
     <Compile Include="Common\STEPS\BackEnd\Service\CreateRequest.cs" />
-    <Compile Include="Common\Utils\ExtensionAttribute.cs" />
-    <Compile Include="Common\Utils\InspectorBehavior.cs" />
-    <Compile Include="Common\Utils\MyMessageInspector .cs" />
     <Compile Include="Common\STEPS\BackEnd\DataBase\DataBase.cs" />
     <Compile Include="Common\SRC\Load.cs" />
     <Compile Include="Common\STEPS\FrontEnd\AllPages.cs" />

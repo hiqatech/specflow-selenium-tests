@@ -50,7 +50,7 @@ namespace ProductTests.Common
                 goto firefox_action_done;
             }
 
-            Actions actions = new Actions(SetUp.driver);
+            Actions actions = new Actions(SetUp.webDriver);
             actions.MoveToElement(webelement);
             actions.Perform();
 
@@ -96,7 +96,7 @@ namespace ProductTests.Common
             startTime = 0;
             while (startTime < maxTime)
             {
-                webelement = SetUp.driver.FindElement(By.CssSelector(element_locator));
+                webelement = SetUp.webDriver.FindElement(By.CssSelector(element_locator));
                 if (isDisplayed(webelement, element_name))
                 {
                     Thread.Sleep(shortSleepTime);
@@ -117,7 +117,7 @@ namespace ProductTests.Common
             startTime = 0;
             while (startTime < maxTime)
             {
-                webelement = SetUp.driver.FindElement(By.CssSelector(element_locator));
+                webelement = SetUp.webDriver.FindElement(By.CssSelector(element_locator));
                 if (!(isDisplayed(webelement, element_name)))
                 {
                     Thread.Sleep(shortSleepTime);
@@ -136,7 +136,7 @@ namespace ProductTests.Common
         public static void TakeScreenShot()
         {
             string testImage = "testEvidenceImage" + SetUp.systemTime + ".jpg"; 
-            var screenshotdriver = SetUp.driver as ITakesScreenshot;
+            var screenshotdriver = SetUp.webDriver as ITakesScreenshot;
             var screenshot = screenshotdriver.GetScreenshot();
             string imagefullpath = Path.Combine(SetUp.currentTestRestultDirectory, testImage);      
             screenshot.SaveAsFile(imagefullpath, ImageFormat.Jpeg);

@@ -1,22 +1,22 @@
-﻿using OpenQA.Selenium;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
 using System;
-using System.Collections.Generic;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace ProductTests.Common
 {
     [Binding]
+
     public sealed class SetUp
     {
-        public static IWebDriver driver = null;
+        public static IWebDriver webDriver = null;
         public static string current_driver = null;
         public static string testStartTime = null;
         public static string systemTime = DateTime.Now.ToString("yyyy-MM-ddTHHmmss");
@@ -73,21 +73,30 @@ namespace ProductTests.Common
 
 
         [BeforeScenario()]
-        public static void CDriverSetup()
+        public static void Setup()
         {
-            string scenarioTitle = ScenarioContext.Current.ScenarioInfo.Title.ToString();
-            List<string> result = scenarioTitle.Split(' ').ToList();
-            foreach (string browser in result)
-            {
+
+            Console.WriteLine("***************");
+            Console.WriteLine("Tests start ...");
+
+        }
+
+
+        [TestMethod]
+        [Given(@"I start the WebDriver with (.*) browser")]
+        [When(@"I start the WebDriver with (.*) browser")]
+        [Then(@"I start the WebDriver with (.*) browser")]
+        public static void DriverSetup(string browser)
+        {
                 switch (browser)
                 {
                     case "Chrome":
                         {
                             ChromeOptions options = new ChromeOptions();
                             options.AddArgument("--ignore-certificate-errors");
-                            driver = new ChromeDriver();
-                            driver.Manage().Window.Maximize();
-                            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(20));
+                            webDriver = new ChromeDriver();
+                            webDriver.Manage().Window.Maximize();
+                            webDriver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(20));
                             current_driver = "Chrome";
                             break;
                         }
@@ -95,8 +104,8 @@ namespace ProductTests.Common
                         {
                             string path = testProjectDirectory + "\\ffProfile";
                             FirefoxProfile ffprofile = new FirefoxProfile(path);
-                            driver = new FirefoxDriver(ffprofile);
-                            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(20));
+                            webDriver = new FirefoxDriver(ffprofile);
+                            webDriver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(20));
                             current_driver = "Firefox";
                             break;
                         }
@@ -105,39 +114,25 @@ namespace ProductTests.Common
                         {
                             DesiredCapabilities capabilities = new DesiredCapabilities();
                             capabilities.SetCapability(CapabilityType.AcceptSslCertificates, true);
-                            driver = new InternetExplorerDriver();
-                            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(20));
+                            webDriver = new InternetExplorerDriver();
+                            webDriver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(20));
                             current_driver = "IE";
                             break;
                         }
-                    case "DB":
-                        {
-                            Console.WriteLine("DB Tests ...");
-                            current_driver = "DB";
-                            goto test_does_not_need_driver;
-                        }
-                    case "Service":
-                        {
-                            Console.WriteLine("Service Tests ...");
-                            current_driver = "Service";
-                            goto test_does_not_need_driver;     
-                        }
+                    
                     default:
                         {
-                            Console.WriteLine("Tests start ...");
-                            goto test_does_not_need_driver;
-                        }
+
+                        Console.WriteLine("Webdriver " + browser + "not implemented in the test setup");
+                        break;
+                    }
                 }
 
-            }
-
             Console.WriteLine("Starting " + current_driver + " driver");
-            driver.Manage().Window.Maximize();
-        //driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15));
-        //driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(20));
+            webDriver.Manage().Window.Maximize();
+            //driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15));
+            //driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(20));
 
-
-        test_does_not_need_driver:;
         }
 
 
@@ -150,7 +145,7 @@ namespace ProductTests.Common
             if (ScenarioContext.Current.TestError != null)
             {
                 string testImage = "testTailedImage" + systemTime + ".jpg";
-                var screenshotdriver = SetUp.driver as ITakesScreenshot;
+                var screenshotdriver = SetUp.webDriver as ITakesScreenshot;
                 var screenshot = screenshotdriver.GetScreenshot();
                 string imagefullpath = Path.Combine(currentTestRestultDirectory, testImage);
                 screenshot.SaveAsFile(imagefullpath, ImageFormat.Jpeg);
@@ -158,8 +153,8 @@ namespace ProductTests.Common
                 Console.WriteLine("Test Failed ScreenShoot saved with " + testImage.ToString() + " name at " + systemTime + " to " + currentTestRestultDirectory);
             }
 
-            driver.Close();
-            driver.Quit();
+            webDriver.Close();
+            webDriver.Quit();
 
            }
         }

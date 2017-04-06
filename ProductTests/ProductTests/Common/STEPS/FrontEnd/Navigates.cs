@@ -19,7 +19,7 @@ namespace ProductTests.Common.Steps.FrontEnd
         public void GivenINavigateTo(string page_name)
         {
             //Helper.WaitToDisappear(SignInPage.loading_message_locator, "loading ...");
-            SetUp.driver.Navigate().GoToUrl(page_name);
+            SetUp.webDriver.Navigate().GoToUrl(page_name);
             AllPages.CurrentProductName = page_name;
         }     
 
