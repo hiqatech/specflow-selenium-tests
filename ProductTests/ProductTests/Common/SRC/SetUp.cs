@@ -5,8 +5,10 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
 using System;
+using System.Collections.Generic;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using TechTalk.SpecFlow;
 
@@ -23,7 +25,7 @@ namespace ProductTests.Common
         public static string testProjectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).FullName + "\\";
         public static string defaultTestRestultDirectory = testProjectDirectory + "TestResults\\";
         public static string currentTestRestultDirectory = null;
-
+        public static string testSuiteType = null;
 
 
         [BeforeTestRun]
@@ -75,9 +77,15 @@ namespace ProductTests.Common
         [BeforeScenario()]
         public static void Setup()
         {
-
+            string scenarioTags = ScenarioContext.Current.ScenarioInfo.Tags.ToList()[0].ToString();
+            if (scenarioTags.Contains("Smoke"))
+                testSuiteType = "Smoke";
+            else if (scenarioTags.Contains("Regression"))
+                testSuiteType = "Regression";
+            else if (scenarioTags.Contains("Acceptance"))
+                testSuiteType = "Acceptance";
             Console.WriteLine("***************");
-            Console.WriteLine("Tests start ...");
+            Console.WriteLine("Tests are starting ...");
 
         }
 
@@ -109,7 +117,6 @@ namespace ProductTests.Common
                             current_driver = "Firefox";
                             break;
                         }
-
                     case "IE":
                         {
                             DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -122,7 +129,6 @@ namespace ProductTests.Common
                     
                     default:
                         {
-
                         Console.WriteLine("Webdriver " + browser + "not implemented in the test setup");
                         break;
                     }
@@ -132,7 +138,7 @@ namespace ProductTests.Common
             webDriver.Manage().Window.Maximize();
             //driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15));
             //driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(20));
-
+   
         }
 
 
@@ -140,7 +146,8 @@ namespace ProductTests.Common
         public static void DriverClose()
         {
 
-            if ((current_driver == "Chrome") || (current_driver == "Firefox") || (current_driver == "IE")) {
+            if ((current_driver == "Chrome") || (current_driver == "Firefox") || (current_driver == "IE"))
+            {
 
             if (ScenarioContext.Current.TestError != null)
             {
@@ -164,49 +171,11 @@ namespace ProductTests.Common
         [AfterTestRun]
         public static void TestTearDown()
         {
-
+            Console.WriteLine("***************");
+            Console.WriteLine("Tests are finishing ...");
         }
 
-        public static string responseSubFolderName = SetUp.currentTestRestultDirectory + "\\Responses_" + SetUp.systemTime + "\\";
-        public static int responseCount = 0;
-        public static string responseFileName = null;
-        public static string responsePath = null;
-        public static string fileToCompare1 = null;
-        public static string fileToCompare2 = null;
-
-        public static void StoreAnswerAs(string answer, string extension)
-        {
-
-            if (!Directory.Exists(responseSubFolderName))
-            {
-                responseCount = 1;
-
-                Directory.CreateDirectory(responseSubFolderName);
-            }
-
-            responseFileName = "answer" + responseCount + extension;
-            responsePath = responseSubFolderName + responseFileName;
-
-            if (!File.Exists(responsePath))
-                File.CreateText(responsePath).Close();
-
-            if (responseCount == 1)
-            {
-                fileToCompare1 = responsePath;
-                File.WriteAllText(responsePath, answer);
-                responseCount = responseCount + 1;
-            }
-            else if (responseCount == 2)
-            {
-                fileToCompare2 = responsePath;
-                File.WriteAllText(responsePath, answer);
-            }
-            else responseCount = 0;
-
-            Console.WriteLine("Answer saved to " + responsePath);
-
-
-        }
+       
 
     }
 

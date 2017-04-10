@@ -17,8 +17,8 @@ namespace ProductTests.XClients.Linkedin.Features.BackEnd.SignIn
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("BackEndNewBusiness", SourceFile="XClients\\Linkedin\\Features\\BackEnd\\SignIn\\Service.feature", SourceLine=0)]
-    public partial class BackEndNewBusinessFeature
+    [TechTalk.SpecRun.FeatureAttribute("Darta - NewBusiness", SourceFile="XClients\\Linkedin\\Features\\BackEnd\\SignIn\\Service.feature", SourceLine=0)]
+    public partial class Darta_NewBusinessFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -30,7 +30,7 @@ namespace ProductTests.XClients.Linkedin.Features.BackEnd.SignIn
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "BackEndNewBusiness", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Darta - NewBusiness", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -61,26 +61,36 @@ namespace ProductTests.XClients.Linkedin.Features.BackEnd.SignIn
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Service -", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("BusinessServices - Darta - NweBusinessSimple - NewBusiness - I can request a NewB" +
+            "usiness for all products", new string[] {
                 "Smoke"}, SourceLine=3)]
-        public virtual void Service_()
+        public virtual void BusinessServices_Darta_NweBusinessSimple_NewBusiness_ICanRequestANewBusinessForAllProducts()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Service -", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("BusinessServices - Darta - NweBusinessSimple - NewBusiness - I can request a NewB" +
+                    "usiness for all products", new string[] {
                         "Smoke"});
 #line 4
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Field",
-                        "Value"});
-            table1.AddRow(new string[] {
-                        "ApplicationSignedDate",
-                        "system_date-5"});
-            table1.AddRow(new string[] {
-                        "Address",
-                        "Dublin"});
+#line 5
+testRunner.Given("I connect to the WINDEVAD0376 server RA database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 7
+testRunner.And("I clear the database FmTransaction table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 8
+testRunner.And("I read data from the database capture table for the requests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 9
+testRunner.And("I read data from the database verify table where BatchRunId 3 to verify", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+testRunner.And("I create AddProposal requests from this data and send to the services", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+testRunner.Then("I verify the values in the database by the test exected database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 13
+testRunner.And("I write the test results into the server TestReports database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 15
+testRunner.And("I read data from the database verify table where BatchRunId 5 to verify", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
+testRunner.Then("I verify the values in the database by the test exected database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 17
-testRunner.And("I have a NewBusinessProposal to AddProposal", ((string)(null)), table1, "And ");
+testRunner.And("I write the test results into the server TestReports database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

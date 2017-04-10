@@ -5,6 +5,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data.SqlClient;
 using System.Data;
 using System.Globalization;
+using ProductTests.Common.STEPS.BackEnd.Service;
+using System.Linq;
+using ProductTests.Common.SRC;
 
 namespace ProdutcTests.Common.Steps.BackEnd
 {
@@ -13,12 +16,10 @@ namespace ProdutcTests.Common.Steps.BackEnd
 
     class DataBase
     {
-        public static string myServerAddress = null;
-        public static string myDataBase = null;
-        public static string myUsername = null;
-        public static string myPassword = null;
-        public static string connectionString = null;
+        
         public static DateTime system_date;
+        public static string currentEnvironment = null;
+        public static string currentDataServer = null;
         public static string currentDataBase = null;
 
 
@@ -28,17 +29,59 @@ namespace ProdutcTests.Common.Steps.BackEnd
         [Then(@"I connect to the (.*) server (.*) database")]
         public void IConnectToTheDatabase(string server, string database)
         {
+            currentDataServer = server;
+            currentDataBase = database;
+            ServiceInputFromDB.currentDataBase = currentDataBase;
+            ServiceInputFromDB.currentDataServer = currentDataServer;
+            ServiceInputFromDB.scenarioTitle = ScenarioContext.Current.ScenarioInfo.Title.ToString();
+            ServiceInputFromDB.scenarioTitleSections = ServiceInputFromDB.scenarioTitle.Split('-').ToList();
+            ServiceInputFromDB.client = ServiceInputFromDB.scenarioTitleSections[1].Replace(" ", "");
+            ServiceInputFromDB.feature = ServiceInputFromDB.scenarioTitleSections[2].Replace(" ", "");
+            ServiceInputFromDB.transaction = ServiceInputFromDB.scenarioTitleSections[3].Replace(" ", "");
+            ServiceInputFromDB.scenario = ServiceInputFromDB.scenarioTitleSections[4].Replace(" ", "");
+            ServiceInputFromDB.currentDataBase = currentDataBase;
+            ServiceInputFromDB.currentDataBase = currentDataBase;
+
+            string connectionString = null;
+
             switch (server)
             {
                 case "SERV8604":
                     {
+                        currentEnvironment = "UAT/QA";
+
                         connectionString = "Data Source = serv8604; Initial Catalog = "+ database + "; Integrated Security = True";
 
                         SqlConnection connection = new SqlConnection(connectionString);
+                        try
+                        {
+                            connection.Open();
+                            Console.WriteLine("connected" + connectionString);
+                        }
+                        catch (Exception ex)
+                        { Console.WriteLine("Could not connect to the DataBase " + ex.ToString()); }
+
+                        connection.Close();
+
+                        break;
+                    }
+                case "WINDEVAD0376":
+                    {
+                        currentEnvironment = "DEV";
+
+                        connectionString = "Data Source = WINDEVAD0376; Initial Catalog = " + database + "; Integrated Security = True";
+
+                        SqlConnection connection = new SqlConnection(connectionString);
+                        try
+                        {
                         connection.Open();
                         Console.WriteLine("connected" + connectionString);
+                        }
+                        catch ( Exception ex)
+                        { Console.WriteLine("Could not connect to the DataBase " + ex.ToString()); }
+
                         connection.Close();
-                        currentDataBase = database;
+                        
                         break;
                     }
                 default:
@@ -48,38 +91,27 @@ namespace ProdutcTests.Common.Steps.BackEnd
                     }
             }
 
+            string company = DataBase.currentEnvironment + "-" + ServiceInputFromDB.client;
+            Config.SetConfigs(company, database);
+
             string system_date_string;
             string sqlQuery = "SELECT TOP 1[SystemDate] FROM [DartaUATR1].[schedule].[OnlineControl]";
             using (DataSet dataSet = new DataSet())
             {
-                using (SqlDataAdapter sda = new SqlDataAdapter(sqlQuery, DataBase.connectionString))
+                using (SqlDataAdapter sda = new SqlDataAdapter(sqlQuery, connectionString))
                 {
                     sda.Fill(dataSet);
                 }
 
                 system_date_string = dataSet.Tables[0].Rows[0]["SystemDate"].ToString();
-
             }
 
             system_date_string = system_date_string.Remove(system_date_string.Length - 12);
-
             system_date = DateTime.ParseExact(system_date_string, new[] { "M/d/yyyy", "MM/d/yyyy", "M/dd/yyyy", "MM/dd/yyyy" },
             CultureInfo.InvariantCulture,
             DateTimeStyles.None);
-
+        
         }
-
-
-
-        [TestMethod]
-        [Given (@"I run the batch process for (.*) days")]
-        [When(@"I run the batch process for (.*) days")]
-        [Then(@"I run the batch process for (.*) days")]
-        public void IRunTheBatchProcessDays(int days)
-        {
-            Console.WriteLine( "Need to implement" );
-        }
-
 
         [TestMethod]
         [Given(@"I restore the (.*) database on the (.*) server")]
@@ -114,6 +146,10 @@ namespace ProdutcTests.Common.Steps.BackEnd
         {
             Console.WriteLine(e.Percent.ToString() + "% backed up");
         }
+
+       
+
+       
     }
 
 }

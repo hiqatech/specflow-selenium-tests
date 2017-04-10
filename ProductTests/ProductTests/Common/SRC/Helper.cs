@@ -10,6 +10,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
 using ProductTests.Common.Steps.FrontEnd;
 using ProdutcTests.Common.Steps.BackEnd;
+using System.Collections.Generic;
 
 namespace ProductTests.Common
 {
@@ -23,6 +24,7 @@ namespace ProductTests.Common
         public static int shortSleepTime = 100;
         public static int longSleepTime = 10000;
         public static IWebElement webelement;
+        public static string randomNumberString = null;
 
 
         public static void shortSleep()
@@ -47,9 +49,9 @@ namespace ProductTests.Common
             if (SetUp.current_driver == "Firefox" || to == "click")
             {
                 webelement.Click();
-                goto firefox_action_done;
             }
-
+            else
+            { 
             Actions actions = new Actions(SetUp.webDriver);
             actions.MoveToElement(webelement);
             actions.Perform();
@@ -60,8 +62,7 @@ namespace ProductTests.Common
                 webelement.SendKeys(Keys.Return);
             else
                 webelement.SendKeys(Keys.Enter);
-            
-        firefox_action_done:;
+            }
         }
 
         public static bool isDisplayed(IWebElement webelement,string element_name)
@@ -157,17 +158,14 @@ namespace ProductTests.Common
             return random_string;
         }
 
-        public static String GetDynamicDate(string value)
+        public static String GetDynamicDate(string value, string pattern)
         {
             value = value.Replace("system_date", "");
             value = value + ".00";
             double days = double.Parse(value, NumberStyles.AllowLeadingSign | NumberStyles.AllowDecimalPoint);
-            value = DataBase.system_date.AddDays(days).ToString("ddMMyyyy");
+            value = DataBase.system_date.AddDays(days).ToString(pattern);
             return value;
         }
-
-
-        public static string random_string = null;
 
         [TestMethod]
         [Given(@"I wait (.*) sec")]
@@ -184,9 +182,26 @@ namespace ProductTests.Common
         [Then(@"I generate random (.*) char long number starts with (.*)")]
         public void GivenGenerateRandomNumber(int length, string startswith)
         {
-            random_string = Helper.GenerateRandomString(length, startswith);
-            Console.WriteLine(random_string);
+            randomNumberString = Helper.GenerateRandomString(length, startswith);
+            Console.WriteLine(randomNumberString);
         }
+
+        public static List<string> testResultStringList = new List<string>();
+
+        public static void verifyScenario()
+        {
+            try
+            {
+                foreach (string testRestultString in testResultStringList)
+                {
+                    Assert.IsTrue(testRestultString == "PASSED");
+                }
+            }
+            catch
+            {
+                Assert.IsTrue(false);
+            }
+         }
 
     }
 

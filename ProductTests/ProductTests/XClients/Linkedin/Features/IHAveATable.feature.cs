@@ -70,23 +70,23 @@ namespace ProductTests.XClients.Linkedin.Features
 #line 4
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Key",
                         "Value"});
-            table2.AddRow(new string[] {
+            table1.AddRow(new string[] {
                         "ID",
                         "01"});
-            table2.AddRow(new string[] {
+            table1.AddRow(new string[] {
                         "date",
                         "17.03.17"});
-            table2.AddRow(new string[] {
+            table1.AddRow(new string[] {
                         "numer",
                         "999"});
-            table2.AddRow(new string[] {
+            table1.AddRow(new string[] {
                         "letter",
                         "a"});
 #line 5
-testRunner.Given("I have a vertical table", ((string)(null)), table2, "Given ");
+testRunner.Given("I have a vertical table", ((string)(null)), table1, "Given ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -98,18 +98,18 @@ testRunner.Given("I have a vertical table", ((string)(null)), table2, "Given ");
 #line 12
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
                         "Date",
                         "Number",
                         "Letter"});
-            table3.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "01",
                         "17.03.17",
                         "999",
                         "a"});
 #line 13
-testRunner.Given("I have a horizontal table", ((string)(null)), table3, "Given ");
+testRunner.Given("I have a horizontal table", ((string)(null)), table2, "Given ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -121,28 +121,28 @@ testRunner.Given("I have a horizontal table", ((string)(null)), table3, "Given "
 #line 17
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "Key",
                         "Value",
                         "Table"});
-            table4.AddRow(new string[] {
+            table3.AddRow(new string[] {
                         "ID",
                         "01",
                         "ID_Table"});
-            table4.AddRow(new string[] {
+            table3.AddRow(new string[] {
                         "Date",
                         "17.03.17",
                         "Date_Table"});
-            table4.AddRow(new string[] {
+            table3.AddRow(new string[] {
                         "Numer",
                         "999",
                         "Number_Table"});
-            table4.AddRow(new string[] {
+            table3.AddRow(new string[] {
                         "Letter",
                         "a",
                         "Letter_Table"});
 #line 18
-testRunner.Given("The policy 0 database entries should be", ((string)(null)), table4, "Given ");
+testRunner.Given("The policy 0 database entries should be", ((string)(null)), table3, "Given ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -154,23 +154,23 @@ testRunner.Given("The policy 0 database entries should be", ((string)(null)), ta
 #line 25
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "ID",
                         "Date",
                         "Number",
                         "Letter"});
-            table5.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "01",
                         "17.03.17",
                         "999",
                         "a"});
-            table5.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "ID_Table",
                         "Date_Table",
                         "Number_Table",
                         "Letter_Table"});
 #line 26
-testRunner.Given("The policy 1 database entries should be", ((string)(null)), table5, "Given ");
+testRunner.Given("The policy 1 database entries should be", ((string)(null)), table4, "Given ");
 #line hidden
             this.ScenarioCleanup();
         }

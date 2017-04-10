@@ -1,12 +1,10 @@
 ﻿using System;
 using TechTalk.SpecFlow;
-using System.Data.SqlClient;
-using System.Data;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProductTests.Common;
 using ProductTests.Utils;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProdutcTests.Common.Steps.BackEnd
 {
@@ -20,9 +18,9 @@ namespace ProdutcTests.Common.Steps.BackEnd
         [Then(@"The (.*) table (.*) should be (.*)")]
         public void GivenTheTableShouldBe(string table, string searchfor, string value)
         {
-            string where = "PolicyNumber" + DataBaseRead.curentPolicyNumber;
-            DataBaseRead.ISelectInTheSQLDB(null, searchfor, where, table);
-            string queryresult = DataBaseRead.query_result_string;
+            string where = "PolicyNumber" + DataBaseRW.curentPolicyNumber;
+            DataBaseRW.ISelectInTheSQLDB(null, searchfor, where, table);
+            string queryresult = DataBaseRW.queryResultString;
 
             Console.WriteLine(queryresult);
             Assert.IsTrue(queryresult.Contains(value));
@@ -39,9 +37,9 @@ namespace ProdutcTests.Common.Steps.BackEnd
             Dictionary<string, string> dataTableDictionay = new Dictionary<string, string>();
             Dictionary<string, string> PolicyNumberDictionary = new Dictionary<string, string>();
 
-                dataValueDictionary = TableExtensions.DataToDictionary(table, 0);
+                dataValueDictionary = TableExtensions.TableToDictionary(table, 0);
 
-                dataTableDictionay = TableExtensions.DataToDictionary(table, 1);
+                dataTableDictionay = TableExtensions.TableToDictionary(table, 1);
 
                 TableExtensions.fillPolicyNumberDictionary();
                 PolicyNumberDictionary = TableExtensions.PolicyNumberDictionary;
@@ -77,12 +75,55 @@ namespace ProdutcTests.Common.Steps.BackEnd
 
             Dictionary<string, string> Dictionary = new Dictionary<string, string>();
 
-                Dictionary = TableExtensions.DataToDictionary(table, 1);
+                Dictionary = TableExtensions.TableToDictionary(table, 1);
                 TableExtensions.printDictionary(Dictionary);
         }
-    
 
-   }
+        [TestMethod]
+        [Given(@"I compare the (.*) and (.*) query result files")]
+        [When(@"I compare the (.*) and (.*) query result files")]
+        [Then(@"I compare the (.*) and (.*) query result files")]
+        public void GivenIComareTheFiles(string file1, string file2)
+        {
+            IComareTheFiles(file1, file2);
+        }
+
+
+        public void IComareTheFiles(string file1, string file2)
+        {
+            file1 = Path.Combine(DataBaseRW.queryResultSubFolderName, file1);
+            file2 = Path.Combine(DataBaseRW.queryResultSubFolderName, file2);
+
+            String[] lines1 = File.ReadAllLines(file1);
+            String[] lines2 = File.ReadAllLines(file2);
+
+            IEnumerable<String> CompareResult = lines2.Except(lines1);
+
+            if (!File.Exists(DataBaseRW.compareResultPath))
+                File.WriteAllLines(DataBaseRW.compareResultPath, CompareResult);
+        }
+
+
+        [TestMethod]
+        [Given(@"The differencial comparation file by the query results should be empty")]
+        [When(@"The differencial comparation file by the query results should be empty")]
+        [Then(@"The differencial comparation file by the query results should be empty")]
+        public void GivenTheComparationDifferencialFileShouldBeEmpty()
+        {
+            TheComparationDifferencialFileShouldBeEmpty();
+        }
+
+        public void TheComparationDifferencialFileShouldBeEmpty()
+        {
+            StreamReader sr = new StreamReader(DataBaseRW.compareResultPath);
+            string contents = sr.ReadToEnd();
+            if (!(contents.Length == 0))
+                Console.WriteLine("Compared files are not identical on " + contents);
+            Assert.IsTrue(contents.Length == 0);
+        }
+
+
+    }
 
 
 }

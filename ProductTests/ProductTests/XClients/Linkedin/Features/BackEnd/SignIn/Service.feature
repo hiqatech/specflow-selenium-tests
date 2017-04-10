@@ -1,26 +1,17 @@
-﻿Feature: BackEndNewBusiness
+﻿Feature: Darta - NewBusiness
 
 @Smoke
-Scenario: Service -
-#Given I connect to the SERV8604 server DartaUATR1 database  
-#And I ping the DartaBusinessServices with
-#| Field					| Value |
-#| database				| R1     |
-#| distribution			| 01     |
-#| username				| x     |
-#| locale				| IT     |
-#| agentid				| x     |
-#| company				| DAR     |
-##| servicingagentid		| x	|
-#| timeout				| x		|
-#| userclientreference	| x	x	|
-And I have a NewBusinessProposal to AddProposal
-|	Field					|	Value			|
-|	ApplicationSignedDate	|	system_date-5	|
-|	Address					|	Dublin			|
-#And I send POST request to AddProposal
-#When I run the batch process
-#Then The DataBase values shoudl be
-#|	Table			|	Entry		|	Value		|
-#|BP_BasicPolicy 	|	PolicyStatus 	|	I		|
-#|PH_PaymentHistory	|	Details		|	IN FORCE	|
+Scenario: BusinessServices - Darta - NweBusinessSimple - NewBusiness - I can request a NewBusiness for all products
+Given I connect to the WINDEVAD0376 server RA database
+#And I restore the RA database on the WINDEVAD0376 server
+And I clear the database FmTransaction table
+And I read data from the database capture table for the requests
+And I read data from the database verify table where BatchRunId 3 to verify
+And I create AddProposal requests from this data and send to the services
+#When I run the batch process for 3 days
+Then I verify the values in the database by the test exected database
+And I write the test results into the server TestReports database
+#When I run the batch process for 5 days
+And I read data from the database verify table where BatchRunId 5 to verify
+Then I verify the values in the database by the test exected database
+And I write the test results into the server TestReports database 

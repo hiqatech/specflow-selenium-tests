@@ -9,8 +9,8 @@ namespace ProductTests.Common.SRC
     {
         public static Table configTable ;
         public static string serviceName;
-       // public static BaseMessageData SetConfigHeaders(string setServiceName,Table setConfigTable)
-       // {
+        public static void SetConfigs(string company, string database)
+        {
        //     configTable = setConfigTable;
        //     serviceName = setServiceName;
        //     using (BusinessServiceClient service = new BusinessServiceClient()) {
@@ -30,7 +30,7 @@ namespace ProductTests.Common.SRC
        //
        //         }
        //
-       //     }
+            }
 
         }
     }

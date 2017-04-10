@@ -4,6 +4,7 @@ using ProductTests.Common;
 using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Data;
 
 namespace ProductTests.Utils
 {
@@ -12,6 +13,31 @@ namespace ProductTests.Utils
 
     class TableExtensions
     {
+
+        public static Dictionary<string, string> DataTableToDictionary(DataTable dataTable, DataRow dataRow)
+        {
+            Dictionary<string, string> dataDictionary = new Dictionary<string, string>();
+            int x = 0;
+            int y = dataTable.Columns.Count;
+
+            while (!(x == y))
+                foreach (var column in dataTable.Columns)
+                {
+                    dataDictionary.Add(column.ToString(), dataRow[x].ToString());
+                }
+
+            return dataDictionary;
+        }
+
+        public static DataTable AddRowsToDataTable(DataTable dataTable, string id, string addThis)
+        {
+            DataRow dataRow = dataTable.NewRow();
+            dataRow[id] = addThis;
+            dataTable.Rows.Add(dataRow);
+            return dataTable;
+        }
+
+
         public static Dictionary<string,string> PolicyNumberDictionary = null;
 
         public static void fillPolicyNumberDictionary()
@@ -21,10 +47,10 @@ namespace ProductTests.Utils
             PolicyNumberDictionary.Add("1","0100000002");
         }
 
-        public static Dictionary<string, string> DataToDictionary(Table table, int valueto)
+        public static Dictionary<string, string> TableToDictionary(Table table, int valueto)
         {
-            var VDictionary = new Dictionary<string, string>();
-            var HDictionary = new Dictionary<string, string>();
+            Dictionary<string, string> VDictionary = new Dictionary<string, string>();
+            Dictionary< string, string> HDictionary = new Dictionary<string, string>();
 
             if (table.Header.Contains("Key"))
                 {
@@ -42,7 +68,6 @@ namespace ProductTests.Utils
 
                 return VDictionary;
             }
-
             else
             {
                 int i = 0;
@@ -55,14 +80,10 @@ namespace ProductTests.Utils
                         i++;
                 }
                         
-
                 return HDictionary;
 
              }
-
         }
-    
-
       
 
         public static void printDictionary(Dictionary<string, string> dictionary)

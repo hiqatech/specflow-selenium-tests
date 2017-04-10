@@ -50,10 +50,10 @@ namespace ProductTests.Common.Steps.FrontEnd
             }
 
             if (entry.Contains("random"))
-                entry = Helper.random_string;
+                entry = Helper.randomNumberString;
 
             if (entry.Contains("query_result"))
-            entry = DataBaseRead.query_result_string;
+            entry = DataBaseRW.queryResultString;
 
             webelement.SendKeys(entry);
 
