@@ -4,6 +4,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
+using ProductTests.Common.STEPS.BackEnd.Service;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
@@ -26,7 +27,13 @@ namespace ProductTests.Common
         public static string defaultTestRestultDirectory = testProjectDirectory + "TestResults\\";
         public static string currentTestRestultDirectory = null;
         public static string testSuiteType = null;
-
+        public static string scenarioTitle = null;
+        public static List<string> scenarioTitleSections = null;
+        public static string feature = null;
+        public static string client = null;
+        public static string transaction = null;
+        public static string scenario = null;
+        public static string application = null;
 
         [BeforeTestRun]
         public static void TestSetup()
@@ -86,6 +93,14 @@ namespace ProductTests.Common
                 testSuiteType = "Acceptance";
             Console.WriteLine("***************");
             Console.WriteLine("Tests are starting ...");
+
+            scenarioTitle = ScenarioContext.Current.ScenarioInfo.Title.ToString();
+            scenarioTitleSections = scenarioTitle.Split('-').ToList();
+            client = scenarioTitleSections[1].Replace(" ", "");
+            feature = scenarioTitleSections[2].Replace(" ", "");
+            transaction = scenarioTitleSections[3].Replace(" ", "");
+            scenario = scenarioTitleSections[4].Replace(" ", "");
+            application = scenarioTitleSections[0].Replace(" ", "");
 
         }
 

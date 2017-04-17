@@ -15,7 +15,7 @@ namespace ProductTests.Common.STEPS.BackEnd.Service
 {
     [Binding]
 
-    class ServiceInputFromDB
+    class ServiceInputFrom
     {
 
         public static DataTable testCaptureDataTable = new DataTable();
@@ -28,18 +28,14 @@ namespace ProductTests.Common.STEPS.BackEnd.Service
         public static string testFailureString = null;
         public static string currentDataServer = null;
         public static string currentDataBase = null;
-        public static string scenarioTitle = null;
-        public static List<string> scenarioTitleSections = null;
-        public static string feature = null;
-        public static string client = null;
-        public static string transaction = null;
-        public static string scenario = null;
+       
 
-        [Given(@"I read data from the database capture table for the requests")]
-        [When(@"I read data from the database capture table for the requests")]
-        [Then(@"I read data from the database capture table for the requests")]
-        public static void IReadTestRequestDataBase()
+        [Given(@"I read data from the (.*) capture table for the requests")]
+        [When(@"I read data from the (.*) capture table for the requests")]
+        [Then(@"I read data from the (.*) capture table for the requests")]
+        public static void IReadTestCaptureData(string source)
         {
+
             if (testReportDataTable.Columns.Count == 0)
             {
                 testReportDataTable.Clear();
@@ -61,8 +57,17 @@ namespace ProductTests.Common.STEPS.BackEnd.Service
             {
                 sytemTime = DateTime.Now.ToString("yyyy-MM-ddTHHmmss");
                 testScenarioRunDate = sytemTime;
-                string requestSQLQuery = "SELECT * FROM " + transaction + "Capture";
-                testCaptureDataTable = DataBaseRW.GetDataFromDBToDataTable(requestSQLQuery, "ProductTestInput");
+                string requestSQLQuery = "SELECT * FROM " + SetUp.transaction + "Capture";
+
+                if (source == "Excel")
+                {
+                    string excelPath = SetUp.testProjectDirectory + "ProductTestInput.xlsx";
+                    testVerifyDataTable = TableExtensions.ExcelSheetToDataTable(excelPath, requestSQLQuery);
+                }
+                if (source == "dataBase")
+                {           
+                    testCaptureDataTable = DataBaseRW.GetDataFromDBToDataTable(requestSQLQuery, "ProductTestInput");
+                }
             }
             catch (Exception ex)
             {
@@ -75,15 +80,24 @@ namespace ProductTests.Common.STEPS.BackEnd.Service
         }
 
 
-        [Given(@"I read data from the database verify table where the BatchRunId (.*) to verify")]
-        [When(@"I read data from the database verify table where the BatchRunId (.*) to verify")]
-        [Then(@"I read data from the database verify table where the BatchRunId (.*) to verify")]
-        public static void IReadTestRequestDataBase(string batchRunId)
+        [Given(@"I read data from the (.*) verify table where the BatchRunId (.*) to verify")]
+        [When(@"I read data from the (.*) verify table where the BatchRunId (.*) to verify")]
+        [Then(@"I read data from the (.*) verify table where the BatchRunId (.*) to verify")]
+        public static void IReadTestVerifyDataWhereBatchRunId(string source, string batchRunId)
         {
             try
             {
-                string verifySQLQuery = "SELECT * FROM " + transaction + "Verify WHERE BatchRunId = '" + batchRunId + "'";
+                string verifySQLQuery = "SELECT * FROM " + SetUp.transaction + "Verify WHERE BatchRunId = '" + batchRunId + "'";
+
+                if (source == "Excel")
+                {
+                    string excelPath = "";
+                    testVerifyDataTable = TableExtensions.ExcelSheetToDataTable(excelPath, verifySQLQuery);
+                }
+                if (source == "dataBase")
+                { 
                 testVerifyDataTable = DataBaseRW.GetDataFromDBToDataTable(verifySQLQuery, "ProductTestInput");
+                }
 
                 foreach (DataRow verifyDataRow in testVerifyDataTable.Rows)
                 {
@@ -91,13 +105,13 @@ namespace ProductTests.Common.STEPS.BackEnd.Service
                     reportDataRow["TestSuiteRunDate"] = SetUp.testStartTime;
                     reportDataRow["TestSuiteType"] = SetUp.testSuiteType;
                     reportDataRow["TestScenarioRunDate"] = testScenarioRunDate;
-                    reportDataRow["TestFeature"] = feature;
-                    reportDataRow["TestScanario"] = scenario;
-                    reportDataRow["TransactionName"] = transaction;
+                    reportDataRow["TestFeature"] = SetUp.feature;
+                    reportDataRow["TestScanario"] = SetUp.scenario;
+                    reportDataRow["TransactionName"] = SetUp.transaction;
+                    reportDataRow["TestedFiled"] = verifyDataRow["Select"];
                     reportDataRow["PolicyNumber"] = verifyDataRow["WherePolicyNumber"];
                     reportDataRow["DataTable"] = verifyDataRow["From"];
                     reportDataRow["ExpectedValue"] = verifyDataRow["ExpectedValue"];
-                    reportDataRow["TestedFiled"] = verifyDataRow["TestedFiled"];
                     reportDataRow["Info"] = testFailureString;
                     testReportDataTable.Rows.Add(reportDataRow);
                 }
@@ -133,7 +147,7 @@ namespace ProductTests.Common.STEPS.BackEnd.Service
                 if (ServiceObject.requestResponseString.Contains("PolicyNumber"))
                 {
                     Assert.IsTrue(true);
-                    if (transaction == "NewBusiness")
+                    if (SetUp.transaction == "NewBusiness")
                     {
                         XmlDocument response = null;
                         response.Load(ServiceObject.requestResponseString);

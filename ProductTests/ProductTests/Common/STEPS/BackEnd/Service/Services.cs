@@ -84,31 +84,31 @@ namespace ProdutcTests.Common.Steps.BackEnd
             XmlDocument serviceObjectTemplateXML = new XmlDocument();
             switch (requestName)
             {
-                case "AddProposal":   // DataBase.client !!!
+                case "AddProposal":   
                     {
                         serviceObjectTemplateXML.Load(SetUp.testProjectDirectory +
                             @"\ProductTestsSolution\IPSIClients\Darta\Templates\AddProposal.xml");
                         break;
                     }
-                case "ProcessFullSurrender":   // DataBase.client !!!
+                case "ProcessFullSurrender":   
                     {
                         serviceObjectTemplateXML.Load(SetUp.testProjectDirectory +
                             @"\ProductTestsSolution\IPSIClients\Darta\Templates\ProcessFullSurrender.xml");
                         break;
                     }
-                case "ProcessPartialSurrender":   // DataBase.client !!!
+                case "ProcessPartialSurrender":   
                     {
                         serviceObjectTemplateXML.Load(SetUp.testProjectDirectory +
                             @"\ProductTestsSolution\IPSIClients\Darta\Templates\ProcessPartialSurrender.xml");
                         break;
                     }
-                case "AddTopUp":   // DataBase.client !!!
+                case "AddTopUp":   
                     {
                         serviceObjectTemplateXML.Load(SetUp.testProjectDirectory +
                             @"\ProductTestsSolution\IPSIClients\Darta\Templates\AddTopUp.xml");
                         break;
                     }
-                case "ProcessCancellation":   // DataBase.client !!!
+                case "ProcessCancellation":   
                     {
                         serviceObjectTemplateXML.Load(SetUp.testProjectDirectory +
                             @"\ProductTestsSolution\IPSIClients\Darta\Templates\ProcessCancellation.xml");
@@ -123,12 +123,18 @@ namespace ProdutcTests.Common.Steps.BackEnd
                     {
                         string currentKey = requestKey;
                         string value = requestData[requestKey];
-                        string keyNo = "1";
                         if (requestKey.Any(char.IsDigit))
                         {
-                            keyNo = Regex.Match(requestKey, @"\d+").Value;
+                            string keyNo = Regex.Match(requestKey, @"\d+").Value;
+                            int keyInt = Int32.Parse(keyNo);
                             currentKey = requestKey.Replace(keyNo, "");
-                            XmlNode child = serviceObjectTemplateXML.SelectSingleNode("//*[local-name()='" + currentKey + "'][" + keyNo + "]");
+                            XmlNodeList childList = serviceObjectTemplateXML.SelectNodes("//*[local-name()='" + currentKey + "']");
+                            XmlNode child = childList[keyInt];
+                            child.InnerText = value;
+                        }
+                        else
+                        {
+                            XmlNode child = serviceObjectTemplateXML.SelectSingleNode("//*[local-name()='" + currentKey + "']");
                             child.InnerText = value;
                         }
                     }

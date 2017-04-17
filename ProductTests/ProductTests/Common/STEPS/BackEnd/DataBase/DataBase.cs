@@ -8,6 +8,7 @@ using System.Globalization;
 using ProductTests.Common.STEPS.BackEnd.Service;
 using System.Linq;
 using ProductTests.Common.SRC;
+using ProductTests.Common;
 
 namespace ProdutcTests.Common.Steps.BackEnd
 {
@@ -31,16 +32,9 @@ namespace ProdutcTests.Common.Steps.BackEnd
         {
             currentDataServer = server;
             currentDataBase = database;
-            ServiceInputFromDB.currentDataBase = currentDataBase;
-            ServiceInputFromDB.currentDataServer = currentDataServer;
-            ServiceInputFromDB.scenarioTitle = ScenarioContext.Current.ScenarioInfo.Title.ToString();
-            ServiceInputFromDB.scenarioTitleSections = ServiceInputFromDB.scenarioTitle.Split('-').ToList();
-            ServiceInputFromDB.client = ServiceInputFromDB.scenarioTitleSections[1].Replace(" ", "");
-            ServiceInputFromDB.feature = ServiceInputFromDB.scenarioTitleSections[2].Replace(" ", "");
-            ServiceInputFromDB.transaction = ServiceInputFromDB.scenarioTitleSections[3].Replace(" ", "");
-            ServiceInputFromDB.scenario = ServiceInputFromDB.scenarioTitleSections[4].Replace(" ", "");
-            ServiceInputFromDB.currentDataBase = currentDataBase;
-            ServiceInputFromDB.currentDataBase = currentDataBase;
+            ServiceInputFrom.currentDataBase = currentDataBase;
+            ServiceInputFrom.currentDataServer = currentDataServer;
+           
 
             string connectionString = null;
 
@@ -91,7 +85,7 @@ namespace ProdutcTests.Common.Steps.BackEnd
                     }
             }
 
-            string company = DataBase.currentEnvironment + "-" + ServiceInputFromDB.client;
+            string company = DataBase.currentEnvironment + "-" + SetUp.client;
             Config.SetConfigs(company, database);
 
             string system_date_string;

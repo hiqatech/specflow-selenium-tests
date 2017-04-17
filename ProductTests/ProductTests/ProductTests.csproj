@@ -162,7 +162,7 @@
     <Compile Include="Common\SRC\Messenger.cs" />
     <Compile Include="Common\STEPS\BackEnd\DataBase\DataBase.cs" />
     <Compile Include="Common\SRC\Load.cs" />
-    <Compile Include="Common\STEPS\BackEnd\Service\ServiceInputFromDB.cs" />
+    <Compile Include="Common\STEPS\BackEnd\Service\ServiceInputFrom.cs" />
     <Compile Include="Common\STEPS\BackEnd\Service\ServiceObject.cs" />
     <Compile Include="Common\STEPS\FrontEnd\AllPages.cs" />
     <Compile Include="Common\STEPS\BackEnd\DataBase\DataBaseRW.cs" />

@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data;
+using System.Data.OleDb;
 
 namespace ProductTests.Utils
 {
@@ -96,6 +97,28 @@ namespace ProductTests.Utils
 
         }
 
-        
-   }
+        public static DataTable ExcelSheetToDataTable(string excelPath,string sqlQuery)
+        {
+            string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + excelPath + ";Extended Properties=\"Excel 13.0;HDR=YES;\"";
+            
+            DataSet dataSet = new DataSet();
+            DataTable dataTable = null;
+           
+            try
+            {     
+                OleDbConnection connection = new OleDbConnection(connectionString);
+                OleDbDataAdapter adapter = new OleDbDataAdapter(sqlQuery, connection);
+                adapter.Fill(dataSet);
+                dataTable = dataSet.Tables[0];      
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return dataTable;
+        }
+
+
+    }
 }
