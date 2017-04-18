@@ -99,8 +99,8 @@ namespace ProductTests.Utils
 
         public static DataTable ExcelSheetToDataTable(string excelPath,string sqlQuery)
         {
-            string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + excelPath + ";Extended Properties=\"Excel 13.0;HDR=YES;\"";
-            
+            string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + excelPath + ";Extended Properties='Excel 12.0;IMEX=1;'";
+
             DataSet dataSet = new DataSet();
             DataTable dataTable = null;
            

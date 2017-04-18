@@ -91,12 +91,12 @@ namespace ProductTests.Common.STEPS.BackEnd.Service
 
                 if (source == "Excel")
                 {
-                    string excelPath = "";
+                    tring excelPath = SetUp.testProjectDirectory + "ProductTestInput.xlsx";
                     testVerifyDataTable = TableExtensions.ExcelSheetToDataTable(excelPath, verifySQLQuery);
                 }
                 if (source == "dataBase")
                 { 
-                testVerifyDataTable = DataBaseRW.GetDataFromDBToDataTable(verifySQLQuery, "ProductTestInput");
+                    testVerifyDataTable = DataBaseRW.GetDataFromDBToDataTable(verifySQLQuery, "ProductTestInput");
                 }
 
                 foreach (DataRow verifyDataRow in testVerifyDataTable.Rows)
