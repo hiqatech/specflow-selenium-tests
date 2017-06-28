@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CloasBatchProcess" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CloasBatchProcess" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://windevad0401.europa.internal/CloasBatchService/BatchService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CloasBatchProcess.Helpers" />
+  <xs:import schemaLocation="http://windevad0401.europa.internal/CloasBatchService/BatchService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="BatchRequest">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CloasBatchProcess.Helpers" minOccurs="0" name="BatchType" type="q1:BatchType" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ControlCards" nillable="true" type="q2:ArrayOfbase64Binary" />
+      <xs:element minOccurs="0" name="Cycle" type="xs:int" />
+      <xs:element minOccurs="0" name="Database" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DoNotQueue" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FromRunDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FromRunNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="IncludeDTF" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IncludeInternals" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IncludeOutputProcessing" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Phase" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CloasBatchProcess.Helpers" minOccurs="0" name="PricingType" type="q3:PricingType" />
+      <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Run" type="xs:int" />
+      <xs:element minOccurs="0" name="ToRunDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ToRunNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BatchRequest" nillable="true" type="tns:BatchRequest" />
+  <xs:complexType name="BatchResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Error" type="xs:boolean" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMessages" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element minOccurs="0" name="JobResponses" nillable="true" type="tns:ArrayOfJobResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BatchResponse" nillable="true" type="tns:BatchResponse" />
+  <xs:complexType name="ArrayOfJobResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JobResponse" nillable="true" type="tns:JobResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJobResponse" nillable="true" type="tns:ArrayOfJobResponse" />
+  <xs:complexType name="JobResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Error" type="xs:boolean" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ErrorMessages" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element minOccurs="0" name="JobName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JobNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="ReturnCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JobResponse" nillable="true" type="tns:JobResponse" />
+</xs:schema>

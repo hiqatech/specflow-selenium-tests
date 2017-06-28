@@ -6,7 +6,7 @@
     <ProjectGuid>{E117AE61-2A35-4CB6-B5E6-7CA97F8F2406}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProductTests</RootNamespace>
+    <RootNamespace>ZolCo.ProductTests</RootNamespace>
     <AssemblyName>ProductTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -18,6 +18,10 @@
     <TestProjectType>UnitTest</TestProjectType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,14 +47,6 @@
     </Reference>
     <Reference Include="Autofac.Configuration, Version=4.0.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.Configuration.4.0.1\lib\net45\Autofac.Configuration.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Extensions.Configuration, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
@@ -85,6 +81,7 @@
       <HintPath>..\packages\Unofficial.Microsoft.SQLServer.SMO.11.0.3000.0\lib\Microsoft.SqlServer.SqlEnum.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="nunit.framework, Version=3.6.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
@@ -107,6 +104,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Numerics" />
@@ -120,6 +118,7 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="TechTalk.SpecFlow, Version=2.1.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
@@ -130,12 +129,12 @@
       <HintPath>..\packages\SpecRun.NUnit.1.5.2\lib\net40\TechTalk.SpecRun.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="WebDriver, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.3.3.0\lib\net40\WebDriver.dll</HintPath>
+    <Reference Include="WebDriver, Version=3.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.4.0\lib\net40\WebDriver.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="WebDriver.Support, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.Support.3.3.0\lib\net40\WebDriver.Support.dll</HintPath>
+    <Reference Include="WebDriver.Support, Version=3.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.4.0\lib\net40\WebDriver.Support.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="YamlDotNet, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -158,326 +157,161 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Common\SRC\Config.cs" />
-    <Compile Include="Common\SRC\Messenger.cs" />
-    <Compile Include="Common\STEPS\BackEnd\DataBase\DataBase.cs" />
-    <Compile Include="Common\SRC\Load.cs" />
-    <Compile Include="Common\STEPS\BackEnd\Service\ServiceInputFrom.cs" />
-    <Compile Include="Common\STEPS\BackEnd\Service\ServiceObject.cs" />
-    <Compile Include="Common\STEPS\FrontEnd\AllPages.cs" />
-    <Compile Include="Common\STEPS\BackEnd\DataBase\DataBaseRW.cs" />
-    <Compile Include="Common\STEPS\BackEnd\DataBase\DataBaseVerify.cs" />
-    <Compile Include="Common\STEPS\BackEnd\Service\Services.cs" />
-    <Compile Include="Common\STEPS\FrontEnd\Enters.cs" />
-    <Compile Include="Common\SRC\Helper.cs" />
-    <Compile Include="Common\STEPS\FrontEnd\Selects.cs" />
-    <Compile Include="Common\SRC\SetUp.cs" />
-    <Compile Include="Common\STEPS\FrontEnd\ShouldNSees.cs" />
-    <Compile Include="Common\STEPS\FrontEnd\Navigates.cs" />
-    <Compile Include="XClients\Linkedin\Features\BackEnd\SignIn\Service.feature.cs">
+    <Compile Include="Common\Service\ServiceSteps.cs" />
+    <Compile Include="Common\SetUp\Helper.cs" />
+    <Compile Include="Configs\Config.cs" />
+    <Compile Include="Service References\BatchRunService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Service.feature</DependentUpon>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="XClients\Linkedin\Features\FrontEnd\SignIn\SignIN1.feature.cs">
+    <Compile Include="Tests\LinkedIn\Features\FrontEnd\SignIn\SignIN.feature.cs" />
+    <Compile Include="Tests\LinkedIn\Features\FrontEnd\SignIn\SignIN2.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SignIN.feature</DependentUpon>
     </Compile>
-    <Compile Include="XClients\Linkedin\Features\IHAveATable.feature.cs">
+    <Compile Include="Tests\LinkedIn\Features\FrontEnd\UserAdmin\UserAdmin.feature.cs" />
+    <Compile Include="Tests\LinkedIn\Features\FrontEnd\UserAdmin\UserAdmin1.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>IHAveATable.feature</DependentUpon>
+      <DependentUpon>UserAdmin.feature</DependentUpon>
     </Compile>
-    <Compile Include="XClients\Linkedin\Pages\MainPage.cs" />
-    <Compile Include="XClients\Linkedin\Pages\SignInPage.cs" />
-    <Compile Include="XClients\Linkedin\Pages\SignOutPage.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Common\STEPS\FrontEnd\ShouldSees.cs" />
-    <Compile Include="XClients\Linkedin\SpecSteps.cs" />
-    <Compile Include="Common\Utils\TableExtensions.cs" />
-    <Compile Include="Service References\DartaBusinessServices\Reference.cs">
+    <Compile Include="Tests\LinkedIn\Pages\SignInPage.cs" />
+    <Compile Include="Tests\LinkedIn\Pages\SignOutPage.cs" />
+    <Compile Include="Utilities\DBHelp\DBHelp.cs" />
+    <Compile Include="Utilities\DataHelp\DataHelp.cs" />
+    <Compile Include="Common\DataBase\CreateReports.cs" />
+    <Compile Include="Utilities\LoadHelp\LoadHelp.cs" />
+    <Compile Include="Utilities\ServHelp\ServHelp.cs" />
+    <Compile Include="Utilities\WebHelp\WebHelp.cs" />
+    <Compile Include="Tests\LinkedIn\Features\BackEnd\NewBusiness.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
+      <DependentUpon>NewBusiness.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\LinkedIn\Pages\MainPage.cs" />
+    <Compile Include="Common\FrontEnd\AllPages.cs" />
+    <Compile Include="Common\DataBase\DataBaseRWCD.cs" />
+    <Compile Include="Common\SetUp\SetUp.cs" />
+    <Compile Include="Common\FrontEnd\WebSteps.cs" />
+    <Compile Include="Tests\LinkedIn\SpecSteps.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="XClients\Linkedin\Features\BackEnd\SignIn\Service.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Service.feature.cs</LastGenOutput>
-    </None>
-    <None Include="XClients\Linkedin\Features\FrontEnd\SignIn\SignIN.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SignIN1.feature.cs</LastGenOutput>
-    </None>
-    <None Include="XClients\Linkedin\Features\FrontEnd\SignIn\TestData.xlsx" />
     <None Include="Default.srprofile">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config">
+    <None Include="Service References\BatchRunService\BatchService.wsdl" />
+    <None Include="Service References\BatchRunService\BatchService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
-    <None Include="runtests.cmd" />
-    <None Include="Service References\DartaBusinessServices\BusinessService.wsdl" />
-    <None Include="Service References\DartaBusinessServices\BusinessService.xsd">
+    <None Include="Service References\BatchRunService\BatchService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DartaBusinessServices\BusinessService1.xsd">
+    <None Include="Service References\BatchRunService\BatchService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DartaBusinessServices\BusinessService2.xsd">
+    <None Include="Service References\BatchRunService\BatchService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DartaBusinessServices\BusinessService3.xsd">
+    <None Include="Service References\BatchRunService\BatchService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DartaBusinessServices\BusinessService4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DartaBusinessServices\BusinessService5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DartaBusinessServices\BusinessService6.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DartaBusinessServices\BusinessService7.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DartaBusinessServices\BusinessService8.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DartaBusinessServices\BusinessService9.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.Agent.datasource">
+    <None Include="Service References\BatchRunService\ZolCo.ProductTests.BatchRunService.BatchResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.Assignment.datasource">
+    <None Include="Service References\BatchRunService\ZolCo.ProductTests.BatchRunService.GetJobStatusResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.AvailableDatavisionReport.datasource">
+    <None Include="Service References\BatchRunService\ZolCo.ProductTests.BatchRunService.JobStatus.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.Bank.datasource">
+    <None Include="Service References\BatchRunService\ZolCo.ProductTests.BatchRunService.KillJobResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.BenefitSummary.datasource">
+    <None Include="Service References\BatchRunService\ZolCo.ProductTests.BatchRunService.StartRegionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.ClassificationList.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.ClientSearch.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.CountryList.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaAgents.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaAvailableFunds.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaAvailableFundsSummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaBeneficiaries.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaCancellation.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaClient.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaClientPolicySummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaClientSummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaCommissionSummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaCommonReportingStandards.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaContactDetailsSummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaDeathClaim.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaDipAuthorisation.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaFatca.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaFullSurrender.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaGeneralInfo.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaInvestmentDetails.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaInvestmentInfo.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaMoneyLaundering.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaNewBusiness.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaPartialSurrender.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaPaymentSummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaPhasedSwitch.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaPipelineExtendedSummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaPipelineSummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaPremiumAlteration.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaProductDescriptionList.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaProductList.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaProtection.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaRedirection.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaRegularWithdrawal.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaSwitchFund.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaTopUp.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaTransactionPermissions.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaUncheckedTransactionsSummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.DartaWaitingPayment.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.EstablishmentChargeSummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.InvestmentSummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.ItalianPostCode.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.ItalianProvince.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.ItalianTownCode.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.MemoSummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.PartialSurrenderRule.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.PaymentBaseSummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.PaymentReviewSummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.ReportingStatus.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.RequirementSummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.ReviewTypeList.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.SpecialDealSummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.SwitchRuleSummary.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\DartaBusinessServices\ProductTests.DartaBusinessServices.TransactionSummary.datasource">
+    <None Include="Service References\BatchRunService\ZolCo.ProductTests.BatchRunService.StopRegionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="SpecRunTestProfile.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="XClients\Linkedin\Features\IHAveATable.feature">
+    <None Include="SpecRunTestProfile_2011_09.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Tests\LinkedIn\Features\BackEnd\NewBusiness.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>IHAveATable.feature.cs</LastGenOutput>
+      <LastGenOutput>NewBusiness.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\LinkedIn\Features\FrontEnd\SignIn\SignIN.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SignIN2.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\LinkedIn\Features\FrontEnd\SignIn\TestData.xlsx" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="runtests.cmd" />
+    <None Include="Tests\LinkedIn\Features\FrontEnd\UserAdmin\UserAdmin.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UserAdmin1.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\packages\Selenium.Mozilla.Firefox.Webdriver.0.6.0.1\driver\wires-0.6.0-win.exe">
-      <Link>wires-0.6.0-win.exe</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="Configs\configurations.xml">
+      <SubType>Designer</SubType>
     </Content>
-    <Content Include="..\packages\WebDriver.ChromeDriver.win32.2.28.0.0\content\chromedriver.exe">
-      <Link>chromedriver.exe</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\packages\WebDriverIEDriver.2.45.0.0\tools\IEDriverServer-license.txt">
-      <Link>IEDriverServer-license.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\packages\WebDriverIEDriver.2.45.0.0\tools\IEDriverServer.exe">
-      <Link>IEDriverServer.exe</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="App_Readme\Elmah.txt" />
-    <Content Include="Readme.txt" />
-    <None Include="Service References\DartaBusinessServices\Reference.svcmap">
+    <None Include="Service References\BatchRunService\BatchService.disco" />
+    <None Include="Service References\BatchRunService\configuration91.svcinfo" />
+    <None Include="Service References\BatchRunService\configuration.svcinfo" />
+    <None Include="Service References\BatchRunService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\DartaBusinessServices\configuration.svcinfo" />
-    <None Include="Service References\DartaBusinessServices\configuration91.svcinfo" />
-    <None Include="Service References\DartaBusinessServices\BusinessService.disco" />
+    <Content Include="Tests\LinkedIn\Templates\AddProposal.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="XClients\Linkedin\Features\BackEnd\SignUp\" />
-    <Folder Include="XClients\Linkedin\Features\FrontEnd\SignUp\" />
-    <Folder Include="XClients\Yahoo\Features\" />
-    <Folder Include="XClients\Yahoo\Pages\" />
+    <Folder Include="Tests\Yahoo\Features\" />
+    <Folder Include="Tests\Yahoo\Pages\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\DartaBusinessServices\" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BatchRunService\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
@@ -499,17 +333,19 @@
   </Choose>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\SpecFlow.Plus.Excel.1.4.2\build\SpecFlow.Plus.Excel.targets" Condition="Exists('..\packages\SpecFlow.Plus.Excel.1.4.2\build\SpecFlow.Plus.Excel.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\SpecFlow.Plus.Excel.1.4.2\build\SpecFlow.Plus.Excel.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.Plus.Excel.1.4.2\build\SpecFlow.Plus.Excel.targets'))" />
-  </Target>
   <PropertyGroup>
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
+  <Import Project="..\packages\Selenium.Chrome.WebDriver.2.30\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.30\build\Selenium.Chrome.WebDriver.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Selenium.Chrome.WebDriver.2.30\build\Selenium.Chrome.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Chrome.WebDriver.2.30\build\Selenium.Chrome.WebDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.Firefox.WebDriver.0.17.0\build\Selenium.Firefox.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Firefox.WebDriver.0.17.0\build\Selenium.Firefox.WebDriver.targets'))" />
+  </Target>
+  <Import Project="..\packages\Selenium.Firefox.WebDriver.0.17.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.17.0\build\Selenium.Firefox.WebDriver.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

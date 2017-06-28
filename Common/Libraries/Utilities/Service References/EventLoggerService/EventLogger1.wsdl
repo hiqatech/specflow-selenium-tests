@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EventLogger" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://10.252.50.138/Ipsi.EventLogger/EventLoggerService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://10.252.50.138/Ipsi.EventLogger/EventLoggerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://10.252.50.138/Ipsi.EventLogger/EventLoggerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Ipsi.Common.Databases.Utilities.Types" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEventLogger_LogError_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogError" />
+  </wsdl:message>
+  <wsdl:message name="IEventLogger_LogError_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventLogger_LogServiceCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogServiceCall" />
+  </wsdl:message>
+  <wsdl:message name="IEventLogger_LogServiceCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogServiceCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventLogger_LogStartServiceCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogStartServiceCall" />
+  </wsdl:message>
+  <wsdl:message name="IEventLogger_LogStartServiceCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogStartServiceCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventLogger_LogEndServiceCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogEndServiceCall" />
+  </wsdl:message>
+  <wsdl:message name="IEventLogger_LogEndServiceCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogEndServiceCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventLogger_GetServiceCalls_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceCalls" />
+  </wsdl:message>
+  <wsdl:message name="IEventLogger_GetServiceCalls_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceCallsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventLogger_GetErrors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrors" />
+  </wsdl:message>
+  <wsdl:message name="IEventLogger_GetErrors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventLogger_GetError_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetError" />
+  </wsdl:message>
+  <wsdl:message name="IEventLogger_GetError_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEventLogger">
+    <wsdl:operation name="LogError">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventLogger/LogError" message="tns:IEventLogger_LogError_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventLogger/LogErrorResponse" message="tns:IEventLogger_LogError_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogServiceCall">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventLogger/LogServiceCall" message="tns:IEventLogger_LogServiceCall_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventLogger/LogServiceCallResponse" message="tns:IEventLogger_LogServiceCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogStartServiceCall">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventLogger/LogStartServiceCall" message="tns:IEventLogger_LogStartServiceCall_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventLogger/LogStartServiceCallResponse" message="tns:IEventLogger_LogStartServiceCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogEndServiceCall">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventLogger/LogEndServiceCall" message="tns:IEventLogger_LogEndServiceCall_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventLogger/LogEndServiceCallResponse" message="tns:IEventLogger_LogEndServiceCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCalls">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventLogger/GetServiceCalls" message="tns:IEventLogger_GetServiceCalls_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventLogger/GetServiceCallsResponse" message="tns:IEventLogger_GetServiceCalls_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetErrors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventLogger/GetErrors" message="tns:IEventLogger_GetErrors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventLogger/GetErrorsResponse" message="tns:IEventLogger_GetErrors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetError">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventLogger/GetError" message="tns:IEventLogger_GetError_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventLogger/GetErrorResponse" message="tns:IEventLogger_GetError_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEventLogger" type="tns:IEventLogger">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LogError">
+      <soap:operation soapAction="http://tempuri.org/IEventLogger/LogError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogServiceCall">
+      <soap:operation soapAction="http://tempuri.org/IEventLogger/LogServiceCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogStartServiceCall">
+      <soap:operation soapAction="http://tempuri.org/IEventLogger/LogStartServiceCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogEndServiceCall">
+      <soap:operation soapAction="http://tempuri.org/IEventLogger/LogEndServiceCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceCalls">
+      <soap:operation soapAction="http://tempuri.org/IEventLogger/GetServiceCalls" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetErrors">
+      <soap:operation soapAction="http://tempuri.org/IEventLogger/GetErrors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetError">
+      <soap:operation soapAction="http://tempuri.org/IEventLogger/GetError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EventLogger">
+    <wsdl:port name="BasicHttpBinding_IEventLogger" binding="tns:BasicHttpBinding_IEventLogger">
+      <soap:address location="http://10.252.50.138/Ipsi.EventLogger/EventLoggerService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

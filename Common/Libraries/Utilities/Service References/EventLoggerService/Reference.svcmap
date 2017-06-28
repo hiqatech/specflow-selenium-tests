@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="67ac7ceb-88df-4f63-95d5-c18181ee9c94" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://10.252.50.138/Ipsi.EventLogger/EventLoggerService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="EventLogger1.wsdl" MetadataType="Wsdl" ID="8b6c0fc2-b172-47a9-809a-cdf6a28334f0" SourceId="1" SourceUrl="http://10.252.50.138/Ipsi.EventLogger/EventLoggerService.svc?wsdl" />
+    <MetadataFile FileName="EventLoggerService3.xsd" MetadataType="Schema" ID="265ff26c-6db1-44d7-9bca-67244b6b47b1" SourceId="1" SourceUrl="http://10.252.50.138/Ipsi.EventLogger/EventLoggerService.svc?xsd=xsd1" />
+    <MetadataFile FileName="EventLoggerService31.xsd" MetadataType="Schema" ID="e3bf06a9-f22e-422b-8c3c-da1e7b082c62" SourceId="1" SourceUrl="http://10.252.50.138/Ipsi.EventLogger/EventLoggerService.svc?xsd=xsd0" />
+    <MetadataFile FileName="EventLoggerService32.xsd" MetadataType="Schema" ID="aacfd95a-8d79-4da0-b4d2-3036474ffce7" SourceId="1" SourceUrl="http://10.252.50.138/Ipsi.EventLogger/EventLoggerService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

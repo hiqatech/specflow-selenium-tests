@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Ipsi.Common.Databases.Utilities.Types" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Ipsi.Common.Databases.Utilities.Types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.252.50.138/Ipsi.EventLogger/EventLoggerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ErrorLogDetailEntry">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorLogEntry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Xml" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ErrorLogDetailEntry" nillable="true" type="tns:ErrorLogDetailEntry" />
+  <xs:complexType name="ErrorLogEntry">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ErrorLogBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HostName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LogDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StatusCode" type="xs:int" />
+          <xs:element minOccurs="0" name="TypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ErrorLogEntry" nillable="true" type="tns:ErrorLogEntry" />
+  <xs:complexType name="ErrorLogBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorLogBase" nillable="true" type="tns:ErrorLogBase" />
+  <xs:complexType name="ServiceCallLogEntry">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceCallBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdditionalInformation" nillable="true" type="tns:AdditionalInformation" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Distribution" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Operation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PolicyNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Request" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Response" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ServiceCallLogEntry" nillable="true" type="tns:ServiceCallLogEntry" />
+  <xs:complexType name="ServiceCallBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceCallBase" nillable="true" type="tns:ServiceCallBase" />
+  <xs:complexType name="AdditionalInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfAdditionalInformationItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdditionalInformation" nillable="true" type="tns:AdditionalInformation" />
+  <xs:complexType name="ArrayOfAdditionalInformationItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdditionalInformationItem" nillable="true" type="tns:AdditionalInformationItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdditionalInformationItem" nillable="true" type="tns:ArrayOfAdditionalInformationItem" />
+  <xs:complexType name="AdditionalInformationItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdditionalInformationItem" nillable="true" type="tns:AdditionalInformationItem" />
+  <xs:complexType name="StartServiceCallLogEntry">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceCallBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdditionalInformation" nillable="true" type="tns:AdditionalInformation" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Distribution" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Operation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PolicyNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Request" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StartServiceCallLogEntry" nillable="true" type="tns:StartServiceCallLogEntry" />
+  <xs:complexType name="EndServiceCallLogEntry">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceCallBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Response" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EndServiceCallLogEntry" nillable="true" type="tns:EndServiceCallLogEntry" />
+  <xs:complexType name="ArrayOfServiceCallLogEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceCallLogEntry" nillable="true" type="tns:ServiceCallLogEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfServiceCallLogEntry" nillable="true" type="tns:ArrayOfServiceCallLogEntry" />
+  <xs:complexType name="LogSearchCriteria">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PageIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LogSearchCriteria" nillable="true" type="tns:LogSearchCriteria" />
+  <xs:complexType name="ErrorLogSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfErrorLogEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorLogSummary" nillable="true" type="tns:ErrorLogSummary" />
+  <xs:complexType name="ArrayOfErrorLogEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ErrorLogEntry" nillable="true" type="tns:ErrorLogEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfErrorLogEntry" nillable="true" type="tns:ArrayOfErrorLogEntry" />
+</xs:schema>

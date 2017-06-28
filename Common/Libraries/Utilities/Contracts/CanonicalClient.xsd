@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="Canonical" 
+                  targetNamespace="http://tempuri.org/Canonical.xsd"
+                  elementFormDefault="qualified"
+                  attributeFormDefault="qualified"
+                  xmlns="http://tempuri.org/Canonical.xsd"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="Client">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="Reference" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="8"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="ClientType" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="BusinessName" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="70"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="Surname" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="30"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="FirstName" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="30"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="MiddleInitial" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="Salutation" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="4"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="Gender" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="DateOfBirth" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:dateTime">
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="FiscalCode">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="16"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="NDG">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="15"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="Nationality">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="10"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="Language">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="3"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="PlaceOfBirth">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="40"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="NDGType">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="5"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="PhoneNumber">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="20"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="UnderWritingQuestions">
+          <xs:complexType>
+            <xs:sequence>
+
+              <xs:element name="Occupation">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="Height">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="Weight">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="Age">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="Pastimes">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="IsIdConfirmed">
+                <xs:simpleType>
+                  <xs:restriction base="xs:boolean"/>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="IsSmoker">
+                <xs:simpleType>
+                  <xs:restriction base="xs:boolean"/>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="IsAgeAdmitted">
+                <xs:simpleType>
+                  <xs:restriction base="xs:boolean"/>
+                </xs:simpleType>
+              </xs:element>
+
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+
+        <xs:element name="HasMoreThanOnePolicy">
+          <xs:simpleType>
+            <xs:restriction base="xs:boolean"/>
+          </xs:simpleType>
+        </xs:element>
+
+
+        <xs:element name="MoneyLaundering">
+          <xs:complexType>
+            <xs:sequence>
+              
+              <xs:element name="DocumentType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="DateDocumentIssued">
+                <xs:simpleType>
+                  <xs:restriction base="xs:dateTime">
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="DocumentAuthority">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="DocumentNumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="DocumentSector">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="DocumentBranch">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="DocumentProvince">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="IsNonResidentialDeclaration" type="xs:boolean"/>
+
+              <xs:element name="DocumentationExpiryDate">
+                <xs:simpleType>
+                  <xs:restriction base="xs:dateTime">
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="DocumentTypeDescription">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="IsTaxResident" type="xs:boolean"/>
+
+              <xs:element name="CorrespondenceLocationReference">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="ResidenceLocationReference">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="IsUKResident">
+                <xs:simpleType>
+                  <xs:restriction base="xs:boolean"/>
+                </xs:simpleType>
+              </xs:element>
+
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="IsMarketingAllowed" type="xs:boolean"/>
+
+        <xs:element name="IsCorrespondenceRequired" type="xs:boolean"/>
+
+        <xs:element name="CompanyOrInsuranceNumber">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="16"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="ExternalClientReference">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="15"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="DateOfDeath">
+          <xs:simpleType>
+            <xs:restriction base="xs:dateTime">
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="MarketingMail" type="xs:boolean"/>
+
+        <xs:element name="MarketingPhone" type="xs:boolean"/>
+
+        <xs:element name="MarketingEmail" type="xs:boolean"/>
+
+        <xs:element name="PrivacyQuestions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VersionNumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Question" type="xs:boolean" maxOccurs="6"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="Profession">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="30"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="CompanyStartDate">
+          <xs:simpleType>
+            <xs:restriction base="xs:dateTime">
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+      </xs:sequence>
+
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

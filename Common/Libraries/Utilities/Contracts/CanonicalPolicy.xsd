@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="CanonicalPolicy" 
+                  targetNamespace="http://tempuri.org/CanonicalPolicy.xsd"
+                  elementFormDefault="qualified"
+                  xmlns="http://tempuri.org/CanonicalPolicy.xsd"
+                  xmlns:mstns="http://tempuri.org/CanonicalPolicy.xsd"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="CanonicalPolicy">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="Indexation" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="CpiIncreaseRate" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:float"/>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="TotalEncashedOffset" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:double"/>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="InForceDate" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:dateTime"/>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="IsBond" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:boolean"/>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="SurrenderValue" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:double"/>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="HasWithdrawalTakenPlace" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:boolean"/>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="CalculationDate" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:dateTime"/>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="ValueWarningMessage" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="72" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="NumberOfFunds" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:short"/>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="AutomaticPremiumRedirection" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:boolean"/>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="AssignationDate" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:dateTime"/>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="Currency" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="ProposalNumber" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="8" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <xs:element name="Pin" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="4" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

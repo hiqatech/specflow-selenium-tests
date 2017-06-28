@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BatchService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://windevad0401.europa.internal/CloasBatchService/BatchService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://windevad0401.europa.internal/CloasBatchService/BatchService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://windevad0401.europa.internal/CloasBatchService/BatchService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CloasBatchProcess" />
+      <xsd:import schemaLocation="http://windevad0401.europa.internal/CloasBatchService/BatchService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CloasBatchProcess.Helpers" />
+      <xsd:import schemaLocation="http://windevad0401.europa.internal/CloasBatchService/BatchService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBatchService_InvokeBatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:InvokeBatch" />
+  </wsdl:message>
+  <wsdl:message name="IBatchService_InvokeBatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InvokeBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBatchService_GetJobStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobStatus" />
+  </wsdl:message>
+  <wsdl:message name="IBatchService_GetJobStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBatchService_StartRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartRegion" />
+  </wsdl:message>
+  <wsdl:message name="IBatchService_StartRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBatchService_StopRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopRegion" />
+  </wsdl:message>
+  <wsdl:message name="IBatchService_StopRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBatchService_KillJob_InputMessage">
+    <wsdl:part name="parameters" element="tns:KillJob" />
+  </wsdl:message>
+  <wsdl:message name="IBatchService_KillJob_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KillJobResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBatchService">
+    <wsdl:operation name="InvokeBatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBatchService/InvokeBatch" message="tns:IBatchService_InvokeBatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBatchService/InvokeBatchResponse" message="tns:IBatchService_InvokeBatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBatchService/GetJobStatus" message="tns:IBatchService_GetJobStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBatchService/GetJobStatusResponse" message="tns:IBatchService_GetJobStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBatchService/StartRegion" message="tns:IBatchService_StartRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBatchService/StartRegionResponse" message="tns:IBatchService_StartRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBatchService/StopRegion" message="tns:IBatchService_StopRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBatchService/StopRegionResponse" message="tns:IBatchService_StopRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KillJob">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBatchService/KillJob" message="tns:IBatchService_KillJob_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBatchService/KillJobResponse" message="tns:IBatchService_KillJob_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBatchService" type="tns:IBatchService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InvokeBatch">
+      <soap:operation soapAction="http://tempuri.org/IBatchService/InvokeBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobStatus">
+      <soap:operation soapAction="http://tempuri.org/IBatchService/GetJobStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartRegion">
+      <soap:operation soapAction="http://tempuri.org/IBatchService/StartRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopRegion">
+      <soap:operation soapAction="http://tempuri.org/IBatchService/StopRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KillJob">
+      <soap:operation soapAction="http://tempuri.org/IBatchService/KillJob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BatchService">
+    <wsdl:port name="BasicHttpBinding_IBatchService" binding="tns:BasicHttpBinding_IBatchService">
+      <soap:address location="http://windevad0401.europa.internal/CloasBatchService/BatchService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

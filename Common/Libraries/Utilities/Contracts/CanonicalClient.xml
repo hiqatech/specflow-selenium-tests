@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Properties>
+  <!--<ClientReference MaxLength="8" Type="String"></ClientReference>-->
+  <!--<TypeOfClient MaxLength="1" type="String"></TypeOfClient>-->
+  <!--<BusinessName MaxLength="70" Type="String"></BusinessName>-->
+  <!--<Surname MaxLength="30" Type="String"></Surname>-->
+  <!--<FirstName MaxLength="30" Type="String"></FirstName>-->
+  <!--<MiddleInitial MaxLength="1" Type="String"></MiddleInitial>-->
+  <!--<Salutation MaxLength="4" Type="String"></Salutation>-->
+  <!--<Gender FixedLangth="1" Type="String"></Gender>-->
+
+  <!--What type of date is Date in Cloas?-->
+  <DateOfBirth Type="Date"></DateOfBirth>
+
+  <!--What data type is Fiscal Code?-->
+  <FiscalCode MaxLength="16"></FiscalCode>
+  
+  <!--<NDG MaxLength="15" Type="String"></NDG>-->
+  <!--<Nationality MaxLength="10" Type="String"></Nationality>-->
+  <!--<Language MaxLength="3" Type="String"></Language>-->
+  <!--<PlaceOfBirth MaxLength="40" Type="String"></PlaceOfBirth>-->
+  <!--<NDGType MaxLength="5" Type="String"></NDGType>-->
+
+  <!-- ................................ -->
+  <!-- Canonical Data Model Proprerties -->
+  <!-- ................................ -->
+  
+  <!--<PhoneNumber Relevance="Not For This Client" MaxLength="20" Type="String"></PhoneNumber>-->
+  <!--<UnderWritingQuestions Relevance="Not For This Client">-->
+    <!--<Occupation MaxLength="3" Type="String"></Occupation>-->
+    <!--<Height MaxLength="3" Type="String"></Height>-->
+    <!--<Weight MaxLength="3" Type="String"></Weight>-->
+    <!--<Age MaxLength="3" Type="String"></Age>-->
+    <!--<Pastimes MaxLength="3" Type="String"></Pastimes>-->  
+    <!--<IfIDConfirmed Type="Boolean"></IfIDConfirmed>-->
+    <!--<IfSmoker Type="Boolean"></IfSmoker>-->
+    <!--<IfAgeAdmitted Type="Boolean"></IfAgeAdmitted>-->
+  <!--</UnderWritingQuestions>-->
+  
+  <!--<IfMoreThanOnePolicy Type="Boolean"></IfMoreThanOnePolicy>-->
+  
+  <!--<MoneyLaundering Relevance="Not For This Client">-->
+    
+    <!--<DocumentType MaxLength="3" Type="String"></DocumentType>-->
+    
+    <!--What type of date is Date in Cloas?-->
+    <DateDocumentIssued Type="Date"></DateDocumentIssued>
+    <!--<DocumentAuthority MaxLength="30" Type="String"></DocumentAuthority>-->
+    <!--<DocumentNumber MaxLength="15" Type="String"></DocumentNumber>-->
+    <!--<DocumentSector MaxLength="3" Type="String"></DocumentSector>-->
+    <!--<DocumentBranch MaxLength="4" Type="String"></DocumentBranch>-->
+    <!--<DocumentProvince MaxLength="2" Type="String"></DocumentProvince>-->
+    <!--<Non-ResidentialDeclaration Type="Boolean"></Non-ResidentialDeclaration>-->
+    <!--<DocumentationExpiryDate Type="Date"></DocumentationExpiryDate>-->
+    <!--<DocumentTypeDescription MaxLength="15" Type="String"></DocumentTypeDescription>-->
+    <!--<IfTaxResident Type="Boolean"></IfTaxResident>-->
+    <!--<CorrespondenceLocationReference MaxLength="7" Type="String"></CorrespondenceLocationReference>-->
+    <!--<ResidenceLocationReference MaxLength="7" Type="String"></ResidenceLocationReference>-->
+    <!--<IfUKResident Type="Boolean"></IfUKResident>-->
+    
+  <!--</MoneyLaundering>-->
+  
+  <!--<MarketingAllowed Type="Boolean" Relevance="Not For This Client"></MarketingAllowed>-->
+  <!--<CorrespondenceRequired Type="Boolean" Relevance="Not For This Client"></CorrespondenceRequired>-->
+  <!--<CompanyOrInsuranceNumber Relevance="Not For This Client" Type="String" MaxLength="16"></CompanyOrInsuranceNumber>-->
+  <!--<ExternalClientReference Relevance="Not For This Client" Type="String" MaxLength="15"></ExternalClientReference>-->
+  
+  <!--Is date of death for this client? What type of date is Date in Cloas?-->
+  <DateOfDeath Type="Date"></DateOfDeath>
+  
+  <!--<MarketingMail Relevance="Not For This Client" Type="Boolean"></MarketingMail>-->
+  <!--<MarketingPhone Relevance="Not For This Client" Type="Boolean"></MarketingPhone>-->
+  <!--<MarketingEmail Relevance="Not For This Client" Type="Boolean"></MarketingEmail>-->
+  
+  <!--<PrivacyQuestions Relevance="Not For This Client">-->
+    <!--<VersionNumber MaxLength="3" Type="Integer"></VersionNumber>-->
+    <!--<Questions Type="Array" MaxCount="6">-->
+      <!--<Question Type="Boolean"></Question>-->
+    <!--</Questions>-->
+  <!--</PrivacyQuestions>-->
+  
+  <!--<Profession Relevance="Not For This Client" MaxLength="30" Type="String"></Profession>-->
+
+  <!--Is company start date for this client? What type of date is Date in Cloas?-->
+  <CompanyStartDate Type="Date"></CompanyStartDate>
+</Properties>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5d1b06e3-b406-46e6-b712-6ee96c84dfd0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://windevad0401/CloasBatchService/BatchService.svc " Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BatchService.xsd" MetadataType="Schema" ID="4aba626b-d31e-4b24-bd73-5a78e1da80e2" SourceId="1" SourceUrl="http://windevad0401.europa.internal/CloasBatchService/BatchService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BatchService.wsdl" MetadataType="Wsdl" ID="d437bd81-cb7d-4a0f-8646-0b5aa2d4daad" SourceId="1" SourceUrl="http://windevad0401.europa.internal/CloasBatchService/BatchService.svc?wsdl" />
+    <MetadataFile FileName="BatchService4.xsd" MetadataType="Schema" ID="7a68198a-8e98-4b8f-941e-af37546153f0" SourceId="1" SourceUrl="http://windevad0401.europa.internal/CloasBatchService/BatchService.svc?xsd=xsd4" />
+    <MetadataFile FileName="BatchService2.xsd" MetadataType="Schema" ID="95740279-5a6d-4d19-9764-b2d4c97f688e" SourceId="1" SourceUrl="http://windevad0401.europa.internal/CloasBatchService/BatchService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BatchService1.xsd" MetadataType="Schema" ID="b483a0a2-38fa-474a-9e50-fb13d2fd3ce5" SourceId="1" SourceUrl="http://windevad0401.europa.internal/CloasBatchService/BatchService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BatchService.disco" MetadataType="Disco" ID="6399e766-d642-4a4f-91ee-0f4992e620eb" SourceId="1" SourceUrl="http://windevad0401.europa.internal/CloasBatchService/BatchService.svc?disco" />
+    <MetadataFile FileName="BatchService3.xsd" MetadataType="Schema" ID="29f1bc82-34ea-49c6-93b0-f467a23a4a98" SourceId="1" SourceUrl="http://windevad0401.europa.internal/CloasBatchService/BatchService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

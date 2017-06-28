@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CloasBatchProcess.Helpers" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CloasBatchProcess.Helpers" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="BatchType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Skip" />
+      <xs:enumeration value="FmOnly" />
+      <xs:enumeration value="Full" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BatchType" nillable="true" type="tns:BatchType" />
+  <xs:simpleType name="PricingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Increasing" />
+      <xs:enumeration value="NoIncrease" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PricingType" nillable="true" type="tns:PricingType" />
+  <xs:simpleType name="JobStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Completed" />
+      <xs:enumeration value="InQueue" />
+      <xs:enumeration value="Processing" />
+      <xs:enumeration value="Failed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="JobStatus" nillable="true" type="tns:JobStatus" />
+</xs:schema>
